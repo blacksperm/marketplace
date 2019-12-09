@@ -287,7 +287,7 @@
 			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
 			$('#reque').find('.modal-title').text('Editar requerimiento');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
-			$('#formAlumno').attr('action','<?= base_url('req_controller/actualizar')?>');
+			$('#formreque').attr('action','<?= base_url('req_controller/actualizar')?>');
 
 			//Definimos que trabajaremos con ajax
 			$.ajax({
