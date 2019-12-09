@@ -19,6 +19,7 @@
 				//los registros que nos devuelva el modelo
 				success: function(datos){
 					//Creamos una variable que servira para crear el cuerpo de la tabla
+
 					var tabla = '';
 					//variable para recorrer el for segun la cantidad de registros que nos devuelva el modelo
 					var i;
@@ -36,7 +37,7 @@
 						'<td>'+datos[i].tipo_producto+'</td>'+
 						'<td>'+datos[i].descripcion+'</td>'+
 						'<td>'+datos[i].precio+'</td>'+
-						'<td>'+datos[i].x+'</td>'+
+						'<td>'+datos[i].usuario+'</td>'+
 						'<td>'+datos[i].descripcion+'</td>'+
 						'<td>'+datos[i].transaccion+'</td>'+
 						//creamos un boton para eliminar y editar
@@ -60,7 +61,7 @@
 //**************************************************************************************************************
 
 		//cuando damos click al boton eliminar de cada registro de la tabla_alumnos se ejecutara lo siguiente
-		$('#tabla_alumnos').on('click', '.borrar', function(){
+		$('#requerimiento').on('click', '.borrar', function(){
 
 			$id = $(this).attr('data');//para capturar el dato segun el boton que demos click
 
@@ -76,7 +77,7 @@
 					//metodo de envio de los datos (puede ser get)
 					method: 'post',
 					//direccion hacia donde enviaremos la informacion (controlador/metodo)
-					url: '<?php echo base_url('alumnoC/eliminar')?>',
+					url: '<?php echo base_url('req_controller/eliminar')?>',
 					//datos a enviar, $id es el valor capturado anteriomente del boton
 					data: {id:$id},
 					//Tipo de respuesta que recibiremos
@@ -119,73 +120,73 @@
 
 
 
-		get_sexo();//llamado a la funcion para mostrar sexos
+		// get_sexo();//llamado a la funcion para mostrar sexos
 
-		function get_sexo(){
-			//Definimos que trabajaremos con ajax
-			$.ajax({
-				//tipo de solicitud a realizar
-				type: 'ajax',
-				//direccion hacia donde enviaremos la informacion (controlador/metodo)
-				url: '<?= base_url('alumnoC/get_sexo') ?>',
-				//Tipo de respuesta que recibiremos
-				dataType: 'json',
+		// function get_sexo(){
+		// 	//Definimos que trabajaremos con ajax
+		// 	$.ajax({
+		// 		//tipo de solicitud a realizar
+		// 		type: 'ajax',
+		// 		//direccion hacia donde enviaremos la informacion (controlador/metodo)
+		// 		url: '<?= base_url('alumnoC/get_sexo') ?>',
+		// 		//Tipo de respuesta que recibiremos
+		// 		dataType: 'json',
 
-				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
-				//los registros de la tabla sexo
-				success: function(datos){
-					//Creamos una variable que servira para crear los option del select
-					var op = '';
-					//variable para recorrer el for
-					var i;
+		// 		//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+		// 		//los registros de la tabla sexo
+		// 		success: function(datos){
+		// 			//Creamos una variable que servira para crear los option del select
+		// 			var op = '';
+		// 			//variable para recorrer el for
+		// 			var i;
 
-					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
-					op +="<option value=''>--Seleccione un sexo--</option>";
-					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
-					//osea, numero de registros recibidos
-					for(i=0; i<datos.length; i++){
-						//en la variable op vamos guardando cada registro obtenido del modelo
-						op +="<option value='"+datos[i].id_sexo+"'>"+datos[i].nombre_sexo+"</option>";
-					}
-					//al select con el id sexo le entregamos la variable op que contiene los option
-					$('#sexo').html(op);
-				}
-			});
-		}//fin de funcion para mostrar sexos
+		// 			//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+		// 			op +="<option value=''>--Seleccione un sexo--</option>";
+		// 			//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+		// 			//osea, numero de registros recibidos
+		// 			for(i=0; i<datos.length; i++){
+		// 				//en la variable op vamos guardando cada registro obtenido del modelo
+		// 				op +="<option value='"+datos[i].id_sexo+"'>"+datos[i].nombre_sexo+"</option>";
+		// 			}
+		// 			//al select con el id sexo le entregamos la variable op que contiene los option
+		// 			$('#sexo').html(op);
+		// 		}
+		// 	});
+		// }//fin de funcion para mostrar sexos
 
-		get_curso();//llamado a la funcion para mostrar sexos
+		// get_curso();//llamado a la funcion para mostrar sexos
 
-		function get_curso(){
-			//Definimos que trabajaremos con ajax
-			$.ajax({
-				//tipo de solicitud a realizar
-				type: 'ajax',
-				//direccion hacia donde enviaremos la informacion (controlador/metodo)
-				url: '<?= base_url('alumnoC/get_curso') ?>',
-				//Tipo de respuesta que recibiremos
-				dataType: 'json',
+		// function get_curso(){
+		// 	//Definimos que trabajaremos con ajax
+		// 	$.ajax({
+		// 		//tipo de solicitud a realizar
+		// 		type: 'ajax',
+		// 		//direccion hacia donde enviaremos la informacion (controlador/metodo)
+		// 		url: '<?= base_url('alumnoC/get_curso') ?>',
+		// 		//Tipo de respuesta que recibiremos
+		// 		dataType: 'json',
 
-				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
-				//los registros de la tabla sexo
-				success: function(datos){
-					//Creamos una variable que servira para crear los option del select
-					var op = '';
-					//variable para recorrer el for
-					var i;
+		// 		//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+		// 		//los registros de la tabla sexo
+		// 		success: function(datos){
+		// 			//Creamos una variable que servira para crear los option del select
+		// 			var op = '';
+		// 			//variable para recorrer el for
+		// 			var i;
 
-					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
-					op +="<option value=''>--Seleccione un curso--</option>";
-					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
-					//osea, numero de registros recibidos
-					for(i=0; i<datos.length; i++){
-						//en la variable op vamos guardando cada registro obtenido del modelo
-						op +="<option value='"+datos[i].id_curso+"'>"+datos[i].nombre_curso+"</option>";
-					}
-					//al select con el id curso le entregamos la variable op que contiene los option
-					$('#curso').html(op);
-				}
-			});
-		}//fin de funcion para mostrar cursos
+		// 			//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+		// 			op +="<option value=''>--Seleccione un curso--</option>";
+		// 			//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+		// 			//osea, numero de registros recibidos
+		// 			for(i=0; i<datos.length; i++){
+		// 				//en la variable op vamos guardando cada registro obtenido del modelo
+		// 				op +="<option value='"+datos[i].id_curso+"'>"+datos[i].nombre_curso+"</option>";
+		// 			}
+		// 			//al select con el id curso le entregamos la variable op que contiene los option
+		// 			$('#curso').html(op);
+		// 		}
+		// 	});
+		// }//fin de funcion para mostrar cursos
 
 
 
