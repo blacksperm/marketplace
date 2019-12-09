@@ -10,7 +10,7 @@ class req_controller extends CI_Controller {
 
 	public function index(){
 		$data = array(
-		'title' =>'requerimientos || Ajax');
+			'title' =>'requerimientos || Ajax');
 		$this->load->view('template/header',$data);
 		$this->load->view('req_view');
 		$this->load->view('template/footer');
@@ -31,6 +31,10 @@ class req_controller extends CI_Controller {
 		$res = $this->req_model->producto();
 		echo json_encode($res);
 	}
+	public function transaccion(){
+		$res = $this->req_model->transaccion();
+		echo json_encode($res);
+	}
 
 	public function usuario(){
 		$res = $this->req_model->usuarios();
@@ -38,12 +42,14 @@ class req_controller extends CI_Controller {
 	}
 
 	public function ingresar(){
-		$datos[''] = $this->input->post('');
-		$datos[''] = $this->input->post('');
-		$datos[''] = $this->input->post('');
-		$datos[''] = $this->input->post('');
+		$datos['nproducto'] = $this->input->post('nproducto');
+		$datos['producto'] = $this->input->post('producto');
+		$datos['precio'] = $this->input->post('precio');
+		$datos['usuario'] = $this->input->post('usuario');
+		$datos['descripcion'] = $this->input->post('descripcion');
+		$datos['transaccion'] = $this->input->post('transaccion');
 
-		$res = $this->req_model->set_alumno($datos);
+		$res = $this->req_model->set_requerimiento($datos);
 		echo json_encode($res);
 	}
 
@@ -54,11 +60,13 @@ class req_controller extends CI_Controller {
 	}
 
 	public function actualizar(){
-		$datos[''] = $this->input->post('');
-		$datos['']    = $this->input->post('');
-		$datos['']  = $this->input->post('');
-		$datos['']      = $this->input->post('');
-		$datos['']     = $this->input->post('');
+		$datos['id'] = $this->input->post('id');
+		$datos['nproducto'] = $this->input->post('nproducto');
+		$datos['producto'] = $this->input->post('producto');
+		$datos['precio'] = $this->input->post('precio');
+		$datos['usuario'] = $this->input->post('usuario');
+		$datos['descripcion'] = $this->input->post('descripcion');
+		$datos['transaccion'] = $this->input->post('transaccion');
 
 		$res = $this->req_model->actualizar($datos);
 

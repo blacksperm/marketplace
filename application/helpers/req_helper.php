@@ -109,84 +109,119 @@
 
 
 		//agregamos un evento al boton para agregar nuevo alumno
-		$('#nueAlu').click(function(){
+		$('#nrequerimiento').click(function(){
 			//mostramos el modal que tiene el formulario para ingresar un alumno
-			$('#alumno').modal('show');
+			$('#reque').modal('show');
 			//modificamos el titulo del modal
-			$('#alumno').find('.modal-title').text('Nuevo Alumno');
+			$('#reque').find('.modal-title').text('Nuevo requerimiento');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para ingresar
-			$('#formAlumno').attr('action','<?= base_url('alumnoC/ingresar')?>');
+			$('#formreque').attr('action','<?= base_url('req_controller/ingresar')?>');
 		});
 
 
 
-		// get_sexo();//llamado a la funcion para mostrar sexos
+		producto();//llamado a la funcion para mostrar sexos
 
-		// function get_sexo(){
-		// 	//Definimos que trabajaremos con ajax
-		// 	$.ajax({
-		// 		//tipo de solicitud a realizar
-		// 		type: 'ajax',
-		// 		//direccion hacia donde enviaremos la informacion (controlador/metodo)
-		// 		url: '<?= base_url('alumnoC/get_sexo') ?>',
-		// 		//Tipo de respuesta que recibiremos
-		// 		dataType: 'json',
+		function producto(){
+			//Definimos que trabajaremos con ajax
+			$.ajax({
+				//tipo de solicitud a realizar
+				type: 'ajax',
+				//direccion hacia donde enviaremos la informacion (controlador/metodo)
+				url: '<?= base_url('req_controller/producto') ?>',
+				//Tipo de respuesta que recibiremos
+				dataType: 'json',
 
-		// 		//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
-		// 		//los registros de la tabla sexo
-		// 		success: function(datos){
-		// 			//Creamos una variable que servira para crear los option del select
-		// 			var op = '';
-		// 			//variable para recorrer el for
-		// 			var i;
+				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+				//los registros de la tabla sexo
+				success: function(datos){
+					//Creamos una variable que servira para crear los option del select
+					var op = '';
+					//variable para recorrer el for
+					var i;
 
-		// 			//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
-		// 			op +="<option value=''>--Seleccione un sexo--</option>";
-		// 			//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
-		// 			//osea, numero de registros recibidos
-		// 			for(i=0; i<datos.length; i++){
-		// 				//en la variable op vamos guardando cada registro obtenido del modelo
-		// 				op +="<option value='"+datos[i].id_sexo+"'>"+datos[i].nombre_sexo+"</option>";
-		// 			}
-		// 			//al select con el id sexo le entregamos la variable op que contiene los option
-		// 			$('#sexo').html(op);
-		// 		}
-		// 	});
-		// }//fin de funcion para mostrar sexos
+					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+					op +="<option value=''>--Seleccione un producto--</option>";
+					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+					//osea, numero de registros recibidos
+					for(i=0; i<datos.length; i++){
+						//en la variable op vamos guardando cada registro obtenido del modelo
+						op +="<option value='"+datos[i].id_tipo_producto+"'>"+datos[i].tipo_producto+"</option>";
+					}
+					//al select con el id sexo le entregamos la variable op que contiene los option
+					$('#producto').html(op);
+				}
+			});
+		}//fin de funcion para mostrar sexos
 
-		// get_curso();//llamado a la funcion para mostrar sexos
+			transaccion();//llamado a la funcion para mostrar sexos
 
-		// function get_curso(){
-		// 	//Definimos que trabajaremos con ajax
-		// 	$.ajax({
-		// 		//tipo de solicitud a realizar
-		// 		type: 'ajax',
-		// 		//direccion hacia donde enviaremos la informacion (controlador/metodo)
-		// 		url: '<?= base_url('alumnoC/get_curso') ?>',
-		// 		//Tipo de respuesta que recibiremos
-		// 		dataType: 'json',
+		function transaccion(){
+			//Definimos que trabajaremos con ajax
+			$.ajax({
+				//tipo de solicitud a realizar
+				type: 'ajax',
+				//direccion hacia donde enviaremos la informacion (controlador/metodo)
+				url: '<?= base_url('req_controller/transaccion') ?>',
+				//Tipo de respuesta que recibiremos
+				dataType: 'json',
 
-		// 		//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
-		// 		//los registros de la tabla sexo
-		// 		success: function(datos){
-		// 			//Creamos una variable que servira para crear los option del select
-		// 			var op = '';
-		// 			//variable para recorrer el for
-		// 			var i;
+				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+				//los registros de la tabla sexo
+				success: function(datos){
+					//Creamos una variable que servira para crear los option del select
+					var op = '';
+					//variable para recorrer el for
+					var i;
 
-		// 			//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
-		// 			op +="<option value=''>--Seleccione un curso--</option>";
-		// 			//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
-		// 			//osea, numero de registros recibidos
-		// 			for(i=0; i<datos.length; i++){
-		// 				//en la variable op vamos guardando cada registro obtenido del modelo
-		// 				op +="<option value='"+datos[i].id_curso+"'>"+datos[i].nombre_curso+"</option>";
-		// 			}
-		// 			//al select con el id curso le entregamos la variable op que contiene los option
-		// 			$('#curso').html(op);
-		// 		}
-		// 	});
-		// }//fin de funcion para mostrar cursos
+					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+					op +="<option value=''>--Seleccione un tipo de transaccion--</option>";
+					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+					//osea, numero de registros recibidos
+					for(i=0; i<datos.length; i++){
+						//en la variable op vamos guardando cada registro obtenido del modelo
+						op +="<option value='"+datos[i].id_transaccion+"'>"+datos[i].transaccion+"</option>";
+					}
+					//al select con el id sexo le entregamos la variable op que contiene los option
+					$('#transaccion').html(op);
+				}
+			});
+		}//fin de funcion para mostrar sexos
+
+
+		usuario();//llamado a la funcion para mostrar sexos
+
+		function usuario(){
+			//Definimos que trabajaremos con ajax
+			$.ajax({
+				//tipo de solicitud a realizar
+				type: 'ajax',
+				//direccion hacia donde enviaremos la informacion (controlador/metodo)
+				url: '<?= base_url('req_controller/usuario') ?>',
+				//Tipo de respuesta que recibiremos
+				dataType: 'json',
+
+				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+				//los registros de la tabla sexo
+				success: function(datos){
+					//Creamos una variable que servira para crear los option del select
+					var op = '';
+					//variable para recorrer el for
+					var i;
+
+					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+					op +="<option value=''>--Seleccione un usuario--</option>";
+					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+					//osea, numero de registros recibidos
+					for(i=0; i<datos.length; i++){
+						//en la variable op vamos guardando cada registro obtenido del modelo
+						op +="<option value='"+datos[i].id_usuario+"'>"+datos[i].usuario+"</option>";
+					}
+					//al select con el id curso le entregamos la variable op que contiene los option
+					$('#usuario').html(op);
+				}
+			});
+		}//fin de funcion para mostrar cursos
 
 
 
@@ -194,9 +229,9 @@
 		$('#btnGuardar').click(function(){
 
 			//capturamos lo que este en el atributo action del formulario
-			$url = $('#formAlumno').attr('action');
+			$url = $('#formreque').attr('action');
 			//capturamos todos los datos del formulario
-			$data = $('#formAlumno').serialize();
+			$data = $('#formreque').serialize();
 
 			//Definimos que trabajaremos con ajax
 			$.ajax({
@@ -216,7 +251,7 @@
 				//edi la recibiremos cuando una actualizacion fue exitosa
 				success: function(respuesta){
 					//Ocultamos el moda, hide significa "oculto"
-					$('#alumno').modal('hide');
+					$('#reque').modal('hide');
 					//si la respuesta recibida es add mostramos una alerta de ingreso exitoso
 					if(respuesta=='add'){
 						//si la respuesta que recibimos del modelo es ADD, mostramos una alerta indicando
@@ -234,9 +269,9 @@
 						alertify.notify('error al ingresar!', 'error',10, null);
 					}
 					//Limpiar inputs de formulario
-					$('#formAlumno')[0].reset();
+					$('#formreque')[0].reset();
 					//Actualizar la tabla con el nuevo registro
-					mostrarAlumnos();
+					requerimiento();
 				}
 			});
 
@@ -244,15 +279,15 @@
 
 
 		//cuando damos click al boton de editar de cada registro de la tabla_alumnos se ejecutara lo siguiente	
-		$('#tabla_alumnos').on('click', '.item-edit', function(){
+		$('#requerimiento').on('click', '.item-edit', function(){
 			//para capturar el dato segun el boton que demos click
 			var id = $(this).attr('data');
 
-			$('#alumno').modal('show');//Para mostrar el modal 
+			$('#reque').modal('show');//Para mostrar el modal 
 			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
-			$('#alumno').find('.modal-title').text('Editar Alumno');
+			$('#reque').find('.modal-title').text('Editar requerimiento');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
-			$('#formAlumno').attr('action','<?= base_url('alumnoC/actualizar')?>');
+			$('#formAlumno').attr('action','<?= base_url('req_controller/actualizar')?>');
 
 			//Definimos que trabajaremos con ajax
 			$.ajax({
@@ -261,7 +296,7 @@
 				//metodo de envio de los datos (puede ser get)
 				method: 'post',
 				//direccion hacia donde enviaremos la informacion (controlador/metodo)
-				url: '<?= base_url('alumnoC/get_datos')?>',
+				url: '<?= base_url('req_controller/datos')?>',
 				//datos a enviar, id contiene el id del registro que queremos obtener los datos para mostrarlos en el modal
 				data: {id:id},
 				//Tipo de respuesta que recibiremos
