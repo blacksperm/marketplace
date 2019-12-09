@@ -1,3 +1,4 @@
+<?php $this->load->helper('req') ?>
 <body>
 	<button type="button" class="btn btn-success" id="nrequerimiento">Nuevo</button>
 
@@ -7,13 +8,16 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<td>Id</td>
+				<td>N</td>
 				<td>producto</td>
 				<td>tipo de producto</td>
 				<td>descripsion</td>
 				<td>precio</td>
 				<td>usuario</td>
+				<td>descipcion</td>
 				<td>traccion</td>
+				<td>eliminar</td>
+				<td>actualizar</td>
 			</tr>
 		</thead>
 		<tbody id="requerimiento">
@@ -60,7 +64,7 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form id="formAlumno" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
+					<!-- <form id="formAlumno" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
 						<input type="hidden" name="id_alumno" id="id" value="0">
 						<div class="row">
 							<div class="col">
@@ -95,7 +99,7 @@
 								</div>
 							</div>
 						</div>
-					</form>							
+					</form>		 -->					
 				</div>
 
 				<!-- Modal footer -->
