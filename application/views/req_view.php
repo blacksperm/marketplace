@@ -1,5 +1,7 @@
 <body>
-	<button type="button" class="btn btn-success" id="nueAlu">Nuevo</button>
+	<button type="button" class="btn btn-success" id="nrequerimiento">Nuevo</button>
+
+	<br><br>
 
 
 	<table border="1">

@@ -34,12 +34,16 @@
 						'<td>'+n+'</td>'+
 						'<td>'+datos[i].producto+'</td>'+
 						'<td>'+datos[i].tipo_producto+'</td>'+
-						'<td>'+datos[i].nombre_curso+'</td>'+
+						'<td>'+datos[i].descripcion+'</td>'+
+						'<td>'+datos[i].precio+'</td>'+
+						'<td>'+datos[i].x+'</td>'+
+						'<td>'+datos[i].descripcion+'</td>'+
+						'<td>'+datos[i].transaccion+'</td>'+
 						//creamos un boton para eliminar y editar
 						//tome en cuenta que cada boton tiene la clase borrar y item-edit segun la accion que corresponda
-						'<td>'+'<a href="javascript:;" class="btn btn-danger btn-sm borrar" data="'+datos[i].id_alumno+'">Eliminar</a>'+
+						'<td>'+'<a href="javascript:;" class="btn btn-danger btn-sm borrar" data="'+datos[i].id_requerimiento+'">Eliminar</a>'+
 						'</td>'+
-						'<td>'+'<a href="javascript:;" class="btn btn-info btn-sm item-edit" data="'+datos[i].id_alumno+'">Editar</a>'+
+						'<td>'+'<a href="javascript:;" class="btn btn-info btn-sm item-edit" data="'+datos[i].id_requerimiento+'">Editar</a>'+
 						'</td>'+
 						'</tr>';
 						//incrementamos la variable que nos sirve de correlativo
@@ -47,7 +51,7 @@
 					}
 					//en la vista la etiqueta <tbody> contiene el id "tabla_alumnos"
 					//con esta linea entregamos la variable que contiene el cuerpo de la tabla
-					$('#tabla_alumnos').html(tabla);
+					$('#requerimiento').html(tabla);
 				}
 			});
 		};//fin de funcion mostrar Alumnos
