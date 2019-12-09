@@ -29,10 +29,54 @@ class req_model extends CI_Model {
 		$exe = $this->db->get('tipo_producto');
 		return $exe->result();
 	}
+	public function transaccion(){
+		$exe = $this->db->get('transaccion');
+		return $exe->result();
+	}
 
 	public function usuarios(){
 		$exe = $this->db->get('usuarios');
 		return $exe->result();
+	}
+	public function set_requerimiento($datos){
+		$this->db->set('nombre_producto', $datos['nproducto']);
+		$this->db->set('id_tipo_producto', $datos['producto']);
+		$this->db->set('descripcion', $datos['descripcion']);
+		$this->db->set('precio',$datos['precio'] );
+		$this->db->set('id_usuario', $datos['usuario']);
+		$this->db->set('id_transaccion', $datos['transaccion']);
+
+
+		$this->db->insert('requerimiento');
+
+		if($this->db->affected_rows()>0){
+			return "add";
+		}
+	}
+	public function datos($id){
+		$this->db->where('id_requerimiento',$id);
+		$exe = $this->db->get('requerimiento');
+
+		if($exe->num_rows()>0){
+			return $exe->row();
+		}else{
+			return false;
+		}
+	}
+
+	public function actualizar($datos){
+		$this->db->set('nombre_producto', $datos['nproducto']);
+		$this->db->set('id_tipo_producto', $datos['producto']);
+		$this->db->set('descripcion', $datos['descripcion']);
+		$this->db->set('precio',$datos['precio'] );
+		$this->db->set('id_usuario', $datos['usuario']);
+		$this->db->set('id_transaccion', $datos['transaccion']);
+		$this->db->where('id_requerimiento',$datos['id']);
+			$this->db->update('requerimiento');
+
+		if($this->db->affected_rows()>0){
+			return "edi";
+		}
 	}
 }
 
