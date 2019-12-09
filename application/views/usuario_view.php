@@ -1,6 +1,6 @@
 <?php $this->load->helper('usuario') ?>
 <body>
-	<button type="button" class="btn btn-success" id="nueAlu">Nuevo</button>
+	<button type="button" class="btn btn-success" id="nueUsu">Nuevo</button>
 
 
 	<table border="1">
@@ -46,7 +46,7 @@
 
 
 	<!-- The Modal -->
-	<div class="modal fade" id="alumno">
+	<div class="modal fade" id="usuario">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 
@@ -59,7 +59,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="formUsuario" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_alumno" id="id" value="0">
+						<input type="hidden" name="id_usuario" id="id" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
@@ -78,19 +78,38 @@
 						<div class="row my-3">
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Sexo</span>
-									<select name="sexo" id="sexo" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-										<option value="">-- Seleccione un sexo --</option>
-									</select>
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Edad</span>
+									<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="edad" id="edad">
 								</div>
 							</div>
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Curso</span>
-									<select name="curso" id="curso" class="form-control">
-										<option value="">-- Seleccione un curso--</option>
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Usuario</span>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="usuario" id="usuario">
+								</div>
+							</div>
+						</div>
+
+						<div class="row my-3">
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Contraseña</span>
+									<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="clave">
+								</div>
+							</div>
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Rol</span>
+									<select name="rol" id="rol" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+										<option value="">-- Seleccione un rol --</option>
 									</select>
 								</div>
+							</div>
+						</div>
+						<div class="col">
+							<div class="input-group">
+								<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Correo</span>
+								<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="correo" id="correo">
 							</div>
 						</div>
 					</form>							
