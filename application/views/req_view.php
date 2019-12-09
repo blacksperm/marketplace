@@ -6,14 +6,15 @@
 		<thead>
 			<tr>
 				<td>Id</td>
-				<td>Nombre completo</td>
-				<td>Sexo</td>
-				<td>Curso</td>
-				<td>Eliminar</td>
-				<td>Editar</td>
+				<td>producto</td>
+				<td>tipo de producto</td>
+				<td>descripsion</td>
+				<td>precio</td>
+				<td>usuario</td>
+				<td>traccion</td>
 			</tr>
 		</thead>
-		<tbody id="tabla_alumnos">
+		<tbody id="requerimiento">
 			
 		</tbody>
 	</table>

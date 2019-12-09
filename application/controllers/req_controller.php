@@ -38,10 +38,10 @@ class req_comtroller extends CI_Controller {
 	}
 
 	public function ingresar(){
-		$datos['nombre'] = $this->input->post('nombres');
-		$datos['apellido'] = $this->input->post('apellidos');
-		$datos['sexo'] = $this->input->post('sexo');
-		$datos['curso'] = $this->input->post('curso');
+		$datos[''] = $this->input->post('');
+		$datos[''] = $this->input->post('');
+		$datos[''] = $this->input->post('');
+		$datos[''] = $this->input->post('');
 
 		$res = $this->req_model->set_alumno($datos);
 		echo json_encode($res);
@@ -49,16 +49,16 @@ class req_comtroller extends CI_Controller {
 
 	public function get_datos(){
 		$id = $this->input->post('id');
-		$res = $this->req_model->get_datos($id);
+		$res = $this->req_model->datos($id);
 		echo json_encode($res);
 	}
 
 	public function actualizar(){
-		$datos['id_alumno'] = $this->input->post('id_alumno');
-		$datos['nombre']    = $this->input->post('nombres');
-		$datos['apellido']  = $this->input->post('apellidos');
-		$datos['sexo']      = $this->input->post('sexo');
-		$datos['curso']     = $this->input->post('curso');
+		$datos[''] = $this->input->post('');
+		$datos['']    = $this->input->post('');
+		$datos['']  = $this->input->post('');
+		$datos['']      = $this->input->post('');
+		$datos['']     = $this->input->post('');
 
 		$res = $this->req_model->actualizar($datos);
 

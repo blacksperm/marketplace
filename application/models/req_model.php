@@ -6,7 +6,7 @@ class alumnoM extends CI_Model {
 
 
 	public function get_datos(){
-		$this->db->select('r.id_requerimiento,r.nombre_producto,id_tipo_producto,id_marca,descripcion, precio,id_usuario,id_transsaccion');
+		$this->db->select('r.id_requerimiento,r.nombre_producto,t.tipo_producto,m.id_marca,m.n_marca,descripcion, precio,id_usuario,id_transsaccion');
 		$this->db->from('id_requerimiento r');
 		$this->db->join('tipo_producto t', 't.id_tipo_producto=r.id_tipo_producto');
 		$this->db->join('marca m', 'm.id_marca=t.id_marca');
