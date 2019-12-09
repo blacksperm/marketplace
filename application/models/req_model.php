@@ -2,11 +2,11 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class alumnoM extends CI_Model {
+class req_model extends CI_Model {
 
 
 	public function get_datos(){
-		$this->db->select('r.id_requerimiento,r.nombre_producto,t.tipo_producto,m.id_marca,m.n_marca,descripcion, precio,id_usuario,id_transsaccion');
+		$this->db->select('r.id_requerimiento,r.nombre_producto,t.tipo_producto,m.id_marca,m.n_marca,r.descripcion,r. precio,id_usuario,CONCAT(u.nombre,u.apellido AS x),tr.transsaccion');
 		$this->db->from('id_requerimiento r');
 		$this->db->join('tipo_producto t', 't.id_tipo_producto=r.id_tipo_producto');
 		$this->db->join('marca m', 'm.id_marca=t.id_marca');
