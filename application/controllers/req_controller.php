@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class req_comtroller extends CI_Controller {
+class req_controller extends CI_Controller {
 
 	public function __construct(){
 		parent:: __construct();
@@ -10,7 +10,7 @@ class req_comtroller extends CI_Controller {
 
 	public function index(){
 		$data = array(
-		'title' =>'requerimientos || Ajax');
+			'title' =>'requerimientos || Ajax');
 		$this->load->view('template/header',$data);
 		$this->load->view('req_view');
 		$this->load->view('template/footer');
@@ -31,6 +31,10 @@ class req_comtroller extends CI_Controller {
 		$res = $this->req_model->producto();
 		echo json_encode($res);
 	}
+	public function transaccion(){
+		$res = $this->req_model->transaccion();
+		echo json_encode($res);
+	}
 
 	public function usuario(){
 		$res = $this->req_model->usuarios();
@@ -38,27 +42,31 @@ class req_comtroller extends CI_Controller {
 	}
 
 	public function ingresar(){
-		$datos['nombre'] = $this->input->post('nombres');
-		$datos['apellido'] = $this->input->post('apellidos');
-		$datos['sexo'] = $this->input->post('sexo');
-		$datos['curso'] = $this->input->post('curso');
+		$datos['nproducto'] = $this->input->post('nproducto');
+		$datos['producto'] = $this->input->post('producto');
+		$datos['precio'] = $this->input->post('precio');
+		$datos['usuario'] = $this->input->post('usuario');
+		$datos['descripcion'] = $this->input->post('descripcion');
+		$datos['transaccion'] = $this->input->post('transaccion');
 
-		$res = $this->req_model->set_alumno($datos);
+		$res = $this->req_model->set_requerimiento($datos);
 		echo json_encode($res);
 	}
 
 	public function get_datos(){
 		$id = $this->input->post('id');
-		$res = $this->req_model->get_datos($id);
+		$res = $this->req_model->datos($id);
 		echo json_encode($res);
 	}
 
 	public function actualizar(){
-		$datos['id_alumno'] = $this->input->post('id_alumno');
-		$datos['nombre']    = $this->input->post('nombres');
-		$datos['apellido']  = $this->input->post('apellidos');
-		$datos['sexo']      = $this->input->post('sexo');
-		$datos['curso']     = $this->input->post('curso');
+		$datos['id'] = $this->input->post('id_reque');
+		$datos['nproducto'] = $this->input->post('nproducto');
+		$datos['producto'] = $this->input->post('producto');
+		$datos['precio'] = $this->input->post('precio');
+		$datos['usuario'] = $this->input->post('usuario');
+		$datos['descripcion'] = $this->input->post('descripcion');
+		$datos['transaccion'] = $this->input->post('transaccion');
 
 		$res = $this->req_model->actualizar($datos);
 

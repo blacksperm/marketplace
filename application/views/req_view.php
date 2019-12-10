@@ -1,19 +1,25 @@
+<?php $this->load->helper('req') ?>
 <body>
-	<button type="button" class="btn btn-success" id="nueAlu">Nuevo</button>
+	<button type="button" class="btn btn-success" id="nrequerimiento">Nuevo</button>
+
+	<br><br>
 
 
 	<table border="1">
 		<thead>
 			<tr>
-				<td>Id</td>
-				<td>Nombre completo</td>
-				<td>Sexo</td>
-				<td>Curso</td>
-				<td>Eliminar</td>
-				<td>Editar</td>
+				<td>N</td>
+				<td>producto</td>
+				<td>tipo de producto</td>
+				<td>precio</td>
+				<td>usuario</td>
+				<td>descipcion</td>
+				<td>traccion</td>
+				<td>eliminar</td>
+				<td>actualizar</td>
 			</tr>
 		</thead>
-		<tbody id="tabla_alumnos">
+		<tbody id="trequerimiento">
 			
 		</tbody>
 	</table>
@@ -45,7 +51,7 @@
 
 
 	<!-- The Modal -->
-	<div class="modal fade" id="alumno">
+	<div class="modal fade" id="reque">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 
@@ -57,41 +63,61 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form id="formAlumno" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_alumno" id="id" value="0">
+					<form id="formreque" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
+						<input type="hidden" name="id_reque" id="id" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Nombres</span>
-									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="nombres" id="nombre">
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>nombre produto</span>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="nproducto" id="nproducto">
 								</div>
+
 							</div>
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Apellidos</span>
-									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="apellidos" id="apellido">
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>producto</span>
+									<select name="producto" id="producto" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+										<option value="">-- Seleccione un producto --</option>
+									</select>
 								</div>
 							</div>
+							<div class="col">
+							<div class="input-group">
+								<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>precio</span>
+								<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="precio" id="precio">
+							</div>
+						</div>
 						</div>
 
 						<div class="row my-3">
+
+
+
+							
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Sexo</span>
-									<select name="sexo" id="sexo" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-										<option value="">-- Seleccione un sexo --</option>
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>usuario</span>
+									<select name="usuario" id="usuario" class="form-control">
+										<option value="">-- Seleccione un usuario--</option>
 									</select>
 								</div>
-							</div>
+							</div>	
 							<div class="col">
 								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Curso</span>
-									<select name="curso" id="curso" class="form-control">
-										<option value="">-- Seleccione un curso--</option>
+									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>transaccion</span>
+									<select name="transaccion" id="transaccion" class="form-control">
+										<option value="">-- Seleccione un transaccion--</option>
 									</select>
+								</div>
+							</div>	
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>descripcion</span>
+									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="descripcion" id="descripcion">
 								</div>
 							</div>
 						</div>
+						
 					</form>							
 				</div>
 
