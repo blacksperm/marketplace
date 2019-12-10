@@ -60,7 +60,7 @@ class req_controller extends CI_Controller {
 	}
 
 	public function actualizar(){
-		$datos['id'] = $this->input->post('id');
+		$datos['id'] = $this->input->post('id_reque');
 		$datos['nproducto'] = $this->input->post('nproducto');
 		$datos['producto'] = $this->input->post('producto');
 		$datos['precio'] = $this->input->post('precio');
