@@ -11,7 +11,6 @@
 				<td>N</td>
 				<td>producto</td>
 				<td>tipo de producto</td>
-				<td>descripsion</td>
 				<td>precio</td>
 				<td>usuario</td>
 				<td>descipcion</td>
@@ -20,7 +19,7 @@
 				<td>actualizar</td>
 			</tr>
 		</thead>
-		<tbody id="requerimiento">
+		<tbody id="trequerimiento">
 			
 		</tbody>
 	</table>

@@ -35,7 +35,6 @@
 						'<td>'+n+'</td>'+
 						'<td>'+datos[i].producto+'</td>'+
 						'<td>'+datos[i].tipo_producto+'</td>'+
-						'<td>'+datos[i].descripcion+'</td>'+
 						'<td>'+datos[i].precio+'</td>'+
 						'<td>'+datos[i].usuario+'</td>'+
 						'<td>'+datos[i].descripcion+'</td>'+
@@ -52,7 +51,7 @@
 					}
 					//en la vista la etiqueta <tbody> contiene el id "tabla_alumnos"
 					//con esta linea entregamos la variable que contiene el cuerpo de la tabla
-					$('#requerimiento').html(tabla);
+					$('#trequerimiento').html(tabla);
 				}
 			});
 		};//fin de funcion mostrar Alumnos
@@ -93,7 +92,7 @@
 						if(respuesta==true){
 							alertify.notify('Eliminado exitosamente!', 'success', 10, null);
 							//Llamamos a la funcion para mostrar los alumnos y asi actualizar SOLO LA TABLA y NO TODA LA PAGINA
-							mostrarAlumnos();
+							requerimiento();
 						}else{
 						//si la respuesta que recibimos del modelo es FLASE, mostramos una alerta indicando
 						//que el registro no se pudo eliminar
@@ -266,7 +265,7 @@
 					}else{
 						//si la respuesta que recibimos del modelo es NO ES ADD o EDI, mostramos una alerta indicando que hubi error al realizar la accion (ya sea insertar o actualizar)
 						//error tipo de notificacion ---- 10 segundos a mostrar la alerta
-						alertify.notify('error al ingresar!', 'error',10, null);
+						alertify.notify('error al actualizar!', 'error',10, null);
 					}
 					//Limpiar inputs de formulario
 					$('#formreque')[0].reset();
@@ -279,7 +278,7 @@
 
 
 		//cuando damos click al boton de editar de cada registro de la tabla_alumnos se ejecutara lo siguiente	
-		$('#requerimiento').on('click', '.item-edit', function(){
+		$('#trequerimiento').on('click', '.item-edit', function(){
 			//para capturar el dato segun el boton que demos click
 			var id = $(this).attr('data');
 
@@ -296,7 +295,7 @@
 				//metodo de envio de los datos (puede ser get)
 				method: 'post',
 				//direccion hacia donde enviaremos la informacion (controlador/metodo)
-				url: '<?= base_url('req_controller/datos')?>',
+				url: '<?= base_url('req_controller/get_datos')?>',
 				//datos a enviar, id contiene el id del registro que queremos obtener los datos para mostrarlos en el modal
 				data: {id:id},
 				//Tipo de respuesta que recibiremos
@@ -307,15 +306,17 @@
 				//edi la recibiremos cuando una actualizacion fue exitosa
 				success: function(datos){
 					//en el input del formulario con id "id" colocamos la informacion del campo id_alumno
-					$('#id').val(datos.id_alumno);
+					$('#id').val(datos.id_requerimiento);
 					//en el input del formulario con id "nombre" colocamos la informacion del campo nombre
-					$('#nombre').val(datos.nombres);
+					$('#nproducto').val(datos.nombre_producto);
 					//en el input del formulario con id "apellido" colocamos la informacion del campo apellido
-					$('#apellido').val(datos.apellidos);
+					$('#producto').val(datos.id_tipo_producto);
 					//en el input del formulario con id "sexo" colocamos la informacion del campo id_sexo
-					$('#sexo').val(datos.id_sexo);
+					$('#precio').val(datos.precio);
 					//en el input del formulario con id "curso" colocamos la informacion del campo id_curso
-					$('#curso').val(datos.id_curso);
+					$('#usuario').val(datos.id_usuario);
+					$('#descripcion').val(datos.descripcion);
+					$('#transaccion').val(datos.id_transaccion);
 				}
 			});
 		});//fin de evento editar
