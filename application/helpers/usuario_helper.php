@@ -238,7 +238,7 @@ $('#tabla_usuarios').on('click', '.item-edit', function(){
 					//en el input del formulario con id "edad" colocamos la informacion del campo apellido
 					$('#edad').val(datos.edad);
 					//en el input del formulario con id "usuario" colocamos la informacion del campo usuario
-					$('#usuario').val(datos.usuario);
+					$('#usuarios').val(datos.usuario);
 					//en el input del formulario con id "rol" colocamos la informacion del campo id_rol
 					$('#rol').val(datos.id_rol);
 					//en el input del formulario con id "correo" colocamos la informacion del campo correo
