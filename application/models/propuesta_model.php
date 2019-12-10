@@ -50,6 +50,35 @@ public function get_propuesta(){
 
 	}
 
+	public function get_datos($id){
+		$this->db->where('id_propuesta',$id);
+		$exe = $this->db->get('propuesta');
+		if($this->db->affected_rows()>0){
+			return $exe->row();
+		}
+		else{
+			return false;
+		}
+
+	}
+
+	public function actualizar($datos){
+
+		$this->db->set('id_usuario',$datos["usuario"]);
+		$this->db->set('producto',$datos["producto"]);
+		$this->db->set('descripcion',$datos["descripcion"]);
+		$this->db->set('id_estado',$datos["estado"]);
+		$this->db->set('id_propuesta_imagen',$datos["img"]);
+		$this->db->set('precio',$datos["precio"]);
+
+		$this->db->where('id_propuesta',$datos['id_propuesta']);
+		$this->db->update('propuesta');
+			if($this->db->affected_rows() > 0){
+			return "edi";
+		}
+
+	}
+
 
 
 
