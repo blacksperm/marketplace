@@ -47,6 +47,27 @@ class propuesta_controller extends CI_Controller{
 		$respuesta = $this->propuesta_model->set_propuesta($datos);
 		echo json_encode($respuesta);
 	}
+
+
+	public function get_datos(){
+		$id = $this->input->post('id');
+		$respuesta = $this->propuesta_model->get_datos($id);
+		echo json_encode($respuesta);
+	}
+
+	public function actualizar(){
+		$datos['id_propuesta']=$this->input->post('id_propuesta');
+		$datos['usuario']= $this->input->post('usuario');
+		$datos['producto']= $this->input->post('producto');
+		$datos['descripcion']= $this->input->post('descripcion');
+		$datos['estado']= $this->input->post('estado');
+		$datos['img']= $this->input->post('img');
+		$datos['precio']=$this->input->post('precio');
+
+
+		$respuesta = $this->propuesta_model->actualizar($datos);
+		echo json_encode($respuesta);
+	}
 }
 
 ?>

@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -77,4 +76,4 @@ class req_controller extends CI_Controller {
 
 
 }
->>>>>>> master
+
