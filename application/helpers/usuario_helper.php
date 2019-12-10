@@ -30,13 +30,12 @@ var tabla = '';
 		'<td>'+datos[i].nombre+' '+datos[i].apellido+'</td>'+
 		'<td>'+datos[i].edad+'</td>'+
 		'<td>'+datos[i].usuario+'</td>'+
-		'<td>'+datos[i].password+'</td>'+
 		'<td>'+datos[i].rol+'</td>'+
 		'<td>'+datos[i].correo+'</td>'+
 
 		//se crea  las funciones de eliminar y editar
 		'<td>'+'<a href="javascript:;" class="btn btn-danger btn-sm borrar" data="'+datos[i].id_usuario+'">ELIMINAR</a>'+'</td>'+
-		'<td>'+'<a href="javascript:;" class=btn btn-info btn-sm item-edit" data="'+datos[i].id_usuario+'">EDITAR</a>'+'</td>'+
+		'<td>'+'<a href="javascript:;" class="btn btn-info btn-sm item-edit" data="'+datos[i].id_usuario+'">EDITAR</a>'+
 		'</tr>';
 		//se inicia la variable de correlativo
 		n++;
@@ -103,6 +102,8 @@ var tabla = '';
 $('#nueUsu').click(function(){
 			//mostramos el modal que tiene el formulario para ingresar un alumno
 			$('#usuario').modal('show');
+			//mostramos el modal que tiene el formulario para ingresar un alumno
+			$('#oculto').removeAttr('style');
 			//modificamos el titulo del modal
 			$('#usuario').find('.modal-title').text('Nuevo Usuario');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para ingresar
@@ -147,6 +148,7 @@ function get_rol(){
 
 //agregamos un evento al boton del modal GUARDAR
 $('#btnGuardar').click(function(){
+
 
 			//capturamos lo que este en el atributo action del formulario
 			$url = $('#formUsuario').attr('action');
@@ -197,5 +199,57 @@ $('#btnGuardar').click(function(){
 
 		});//fin evento del boton guardar del modal
 
+
+//cuando damos click al boton de editar de cada registro de la tabla_alumnos se ejecutara lo siguiente	
+$('#tabla_usuarios').on('click', '.item-edit', function(){
+	$('#oculto').attr('style','display: none');//para actualizar escondemos el input contraseña
+			//para capturar el dato segun el boton que demos click
+			var id = $(this).attr('data');
+
+			$('#usuario').modal('show');//Para mostrar el modal 
+			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
+			$('#usuario').find('.modal-title').text('Editar Usuario');
+			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
+			$('#formUsuario').attr('action','<?= base_url('usuario_controller/actualizar')?>');
+
+			//Definimos que trabajaremos con ajax
+			$.ajax({
+				//tipo de solicitud a realizar
+				type: 'ajax',
+				//metodo de envio de los datos (puede ser get)
+				method: 'post',
+				//direccion hacia donde enviaremos la informacion (controlador/metodo)
+				url: '<?= base_url('usuario_controller/get_datos')?>',
+				//datos a enviar, id contiene el id del registro que queremos obtener los datos para mostrarlos en el modal
+				data: {id:id},
+				//Tipo de respuesta que recibiremos
+				dataType: 'json',
+
+				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "datos" recibiremos la palabra los datos del registro que enviamos el id
+				//add la recibiremos cuando una insercion fue exitosa
+				//edi la recibiremos cuando una actualizacion fue exitosa
+				success: function(datos){
+					//en el input del formulario con id "id" colocamos la informacion del campo id_alumno
+					$('#id').val(datos.id_usuario);
+					//en el input del formulario con id "nombre" colocamos la informacion del campo nombre
+					$('#nombre').val(datos.nombre);
+					//en el input del formulario con id "apellido" colocamos la informacion del campo apellido
+					$('#apellido').val(datos.apellido);
+					//en el input del formulario con id "edad" colocamos la informacion del campo apellido
+					$('#edad').val(datos.edad);
+					//en el input del formulario con id "usuario" colocamos la informacion del campo usuario
+					$('#usuario').val(datos.usuario);
+					//en el input del formulario con id "rol" colocamos la informacion del campo id_rol
+					$('#rol').val(datos.id_rol);
+					//en el input del formulario con id "correo" colocamos la informacion del campo correo
+					$('#correo').val(datos.correo);
+
+				}
+			});
+		});//fin de evento editar
+
+
 });//fin de la estructura
+
+
 </script>
