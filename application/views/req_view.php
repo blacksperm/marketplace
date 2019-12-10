@@ -11,7 +11,6 @@
 				<td>N</td>
 				<td>producto</td>
 				<td>tipo de producto</td>
-				<td>descripsion</td>
 				<td>precio</td>
 				<td>usuario</td>
 				<td>descipcion</td>
@@ -20,7 +19,7 @@
 				<td>actualizar</td>
 			</tr>
 		</thead>
-		<tbody id="requerimiento">
+		<tbody id="trequerimiento">
 			
 		</tbody>
 	</table>
@@ -65,7 +64,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="formreque" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_requerimiento" id="id" value="0">
+						<input type="hidden" name="id_reque" id="id" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
