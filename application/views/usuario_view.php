@@ -7,8 +7,7 @@
 		<thead>
 			<tr>
 				<td>N°</td>
-				<td>Nombre</td>
-				<td>Apellido</td>
+				<td>Nombres</td>
 				<td>Edad</td>
 				<td>Usuario</td>
 				<td>Rol</td>
@@ -59,7 +58,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="formUsuario" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_usuario" id="id" value="0">
+						<input type="hidden" name="id_usuarios" id="id" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
@@ -89,23 +88,25 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="row my-3">
-							<div class="col">
-								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Contraseña</span>
-									<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="clave">
-								</div>
-							</div>
-							<div class="col">
-								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Rol</span>
-									<select name="rol" id="rol" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-										<option value="">-- Seleccione un rol --</option>
-									</select>
+						<div id="oculto">
+							<div class="row my-3">
+								<div class="col">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Contraseña</span>
+										<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="clave">
+									</div>
 								</div>
 							</div>
 						</div>
+						<div class="col">
+							<div class="input-group">
+								<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Rol</span>
+								<select name="rol" id="rol" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+									<option value="">-- Seleccione un rol --</option>
+								</select>
+							</div>
+						</div>
+						
 						<div class="col">
 							<div class="input-group">
 								<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Correo</span>
