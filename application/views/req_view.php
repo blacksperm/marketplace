@@ -64,7 +64,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="formreque" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_requerimiento" id="id" value="0">
+						<input type="hidden" name="id_reque" id="id" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
