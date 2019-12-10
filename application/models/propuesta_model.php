@@ -8,7 +8,7 @@ public function get_propuesta(){
 	$this->db->join('requerimiento r','r.id_requerimiento = rp.id_requerimiento');
 	$this->db->join('usuarios u','u.id_usuario = r.id_usuario');
 	$this->db->join('propuesta p','p.id_propuesta = rp.id_propuesta');
-	$this->db->where('p.id_usuario',3);
+	// $this->db->where('p.id_usuario',3);
 	$exe =$this->db->get();
 	return $exe->result();
 
