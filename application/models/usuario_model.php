@@ -66,14 +66,14 @@ class usuario_model extends CI_Model{ //inicio de la clase usuario_model
 		$this->db->set('apellido', $datos["apellido"]);
 		$this->db->set('edad', $datos["edad"]);
 		$this->db->set('usuario', $datos["usuario"]);
-		$this->db->set('password', $datos["clave"]);
+		$this->db->set('password', md5($datos["clave"]));
 		$this->db->set('id_rol', $datos["rol"]);
 		$this->db->set('correo', $datos["correo"]);
 		$this->db->where('id_usuario',$datos['id_usuarios']);
 		$this->db->update('usuarios');
 //se hace una condicion para contar las filas afecatadas y rerornar un resultado
 		if($this->db->affected_rows()>0){
-			return "add";
+			return "edi";
 		}
 	}//fin del metodo actualizar
 
