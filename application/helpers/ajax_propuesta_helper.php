@@ -57,7 +57,7 @@
 						$('#modalBorrar').modal('hide');
 						if(respuesta == true){
 							alertify.notify('Eliminado exitosamente!', 'success', 10, null);
-							mostrarAlumnos();
+							mostrar_propuesta();
 						}
 						else{
 							alertify.notify('Error al eliminar!', 'error',10, null);
@@ -69,5 +69,64 @@
 			});
 
 		});
+
+				$('#nuevaPro').click(function(){
+					$('#propuesta').modal('show');
+					$('#propuesta').find('.modal-title').text('Nueva Propuesta');
+					$('#formPropuesta').attr('action','<?= base_url('propuesta_controller/ingresar') ?>');
+
+
+				});
+
+				get_estado();
+				function get_estado(){
+					$.ajax({
+						type: 'ajax',
+						url: '<?= base_url('propuesta_controller/get_estado') ?>',
+						dataType: 'json',
+
+						success: function(datos){
+							var op = '';
+							var i;
+							op +="<option value=''>--Seleccione un Estado--</option>";
+							for(i=0; i<datos.length; i++){
+								op +="<option value='"+datos[i].id_estado+"'>"+datos[i].estado+"</option>";
+							}
+							$('#estado').html(op);
+						}
+					});
+				}
+
+
+				$('#btnGuardar').click(function(){
+					$url = $('#formPropuesta').attr('action');
+					$data = $('#formPropuesta').serialize();
+
+					$.ajax({
+
+						type: 'ajax',
+						method: 'post',
+						url: $url,
+						data: $data,
+						dataType: 'json',
+						success: function(respuesta){
+						$('#propuesta').modal('hide');
+
+
+						if(respuesta=='add'){
+							alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
+						}
+						else if (respuesta=='edi'){
+							alertify.notify('Propuesta actualizado exitosamente!','success',10,null);
+						}
+						else{
+							alertify.notify('Error al Ingresar!','error',10,null);
+						}
+						$('#formPropuesta')[0].reset();
+						mostrar_propuesta();
+						
+				}
+				});
+				});
 	});
 </script>

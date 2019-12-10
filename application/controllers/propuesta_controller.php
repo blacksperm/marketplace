@@ -24,7 +24,29 @@ class propuesta_controller extends CI_Controller{
 		$respuesta = $this->propuesta_model->eliminar($id);
 		echo json_encode($respuesta);
 		}
-	
+
+
+		public function get_estado(){
+		$respuesta= $this->propuesta_model->get_estado();
+		echo json_encode($respuesta);
+
+	}
+
+
+		public function ingresar(){
+
+
+		$datos['usuario']= $this->input->post('usuario');
+		$datos['producto']= $this->input->post('producto');
+		$datos['descripcion']= $this->input->post('descripcion');
+		$datos['estado']= $this->input->post('estado');
+		$datos['img']= $this->input->post('img');
+		$datos['precio']=$this->input->post('precio');
+
+
+		$respuesta = $this->propuesta_model->set_propuesta($datos);
+		echo json_encode($respuesta);
+	}
 }
 
 ?>
