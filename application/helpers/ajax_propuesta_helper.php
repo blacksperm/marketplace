@@ -18,7 +18,7 @@
 						'<td>'+datos[i].usuario+'</td>'+
 						'<td>'+datos[i].nombre_producto+'</td>'+
 						'<td>'+datos[i].descripcion+'</td>'+
-						'<td>'+datos[i].contacto+'</td>'+
+						//'<td>'+datos[i].contacto+'</td>'+
 
 						'<td>'+datos[i].precio+'</td>'+
 						'<td>'+'<a href="javascript:;" class="btn btn-danger btn-sm borrar" data="'+datos[i].id_requerimiento_propuesta+'">Eliminar</a>'+'</td>'+
@@ -117,10 +117,10 @@
 							alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
 						}
 						else if (respuesta=='edi'){
-							alertify.notify('Propuesta actualizado exitosamente!','success',10,null);
+							alertify.notify('Actualizado exitosamente!','success',10,null);
 						}
 						else{
-							alertify.notify('Error al Ingresar!','error',10,null);
+							alertify.notify('Error al Ingresar','error',10,null);
 						}
 						$('#formPropuesta')[0].reset();
 						mostrar_propuesta();
@@ -146,7 +146,7 @@
 
 				success: function($datos){
 					$('#id').val($datos.id_propuesta);
-					$('#id').val($datos.usuario);
+					$('#usuario').val($datos.id_usuario);
 					$('#producto').val($datos.producto);
 					$('#descripcion').val($datos.descripcion);
 					$('#estado').val($datos.id_estado);

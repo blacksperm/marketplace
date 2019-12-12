@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class propuesta_model extends CI_Model{
 
 public function get_propuesta(){
-	$this->db->select('rp.id_requerimiento_propuesta,r.id_requerimiento,u.usuario,r.nombre_producto,r.descripcion,u.contacto,concat("$",r.precio)as precio');
+	$this->db->select('id_requerimiento_propuesta,p.id_propuesta,u.usuario,r.nombre_producto,p.descripcion,concat("$",p.precio)as precio');
 	$this->db->from('requerimiento_propuesta rp');
 	$this->db->join('requerimiento r','r.id_requerimiento = rp.id_requerimiento');
 	$this->db->join('usuarios u','u.id_usuario = r.id_usuario');
@@ -63,8 +63,9 @@ public function get_propuesta(){
 	}
 
 	public function actualizar($datos){
+		
 
-		$this->db->set('id_usuario',$datos["usuario"]);
+		$this->db->set('id_usuario',$datos["id_usuario"]);
 		$this->db->set('producto',$datos["producto"]);
 		$this->db->set('descripcion',$datos["descripcion"]);
 		$this->db->set('id_estado',$datos["estado"]);

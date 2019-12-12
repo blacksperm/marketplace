@@ -8,9 +8,9 @@
 			<tr>
 				<td>N° de Propuesta</td>
 				<td width="100">Solicitante</td>
-				<td>Producto</td>
-				<td width="400">Descripción</td>
-				<td>Contacto</td>
+				<td>Requerimiento</td>
+				<td width="400">Oferto</td>
+				
 				<td>Precio</td>
 				<td>Eliminar</td>
 				<td>Actualizar</td>

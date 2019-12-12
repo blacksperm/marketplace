@@ -57,7 +57,7 @@ class propuesta_controller extends CI_Controller{
 
 	public function actualizar(){
 		$datos['id_propuesta']=$this->input->post('id_propuesta');
-		$datos['usuario']= $this->input->post('usuario');
+		$datos['id_usuario']= $this->input->post('usuario');
 		$datos['producto']= $this->input->post('producto');
 		$datos['descripcion']= $this->input->post('descripcion');
 		$datos['estado']= $this->input->post('estado');
