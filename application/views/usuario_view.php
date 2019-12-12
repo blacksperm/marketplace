@@ -1,10 +1,11 @@
-<?php $this->load->helper('usuario') ?>
+<?php $this->load->helper('usuario'); ?>
+<?php $this->load->helper('validacionesUsuario'); ?>
 <body>
 	<div class="container">
 		<button type="button" class="btn btn-success" id="nueUsu">Nuevo</button>
 
 
-		<table border="1">
+		<table border="1" style="margin-top: 10px;">
 			<thead>
 				<tr>
 					<td>N°</td>
@@ -13,6 +14,7 @@
 					<td>Usuario</td>
 					<td>Rol</td>
 					<td>Correo</td>
+					<td>N° de telefono</td>
 					<td>Eliminar</td>
 					<td>Editar</td>
 				</tr>
@@ -89,33 +91,45 @@
 									</div>
 								</div>
 							</div>
-							<div id="oculto">
-								<div class="row my-3">
-									<div class="col">
-										<div class="input-group">
-											<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Contraseña</span>
-											<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="clave">
-										</div>
+							<div class="row my-3">
+								<div class="col">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Rol</span>
+										<select name="rol" id="rol" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+											<option value="">-- Seleccione un rol --</option>
+										</select>
 									</div>
 								</div>
-							</div>
-							<div class="col">
-								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Rol</span>
-									<select name="rol" id="rol" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-										<option value="">-- Seleccione un rol --</option>
-									</select>
-								</div>
-							</div>
 
-							<div class="col">
-								<div class="input-group">
-									<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Correo</span>
-									<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="correo" id="correo">
+
+								<div class="col">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Correo</span>
+										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="correo" id="correo">
+									</div>
+									<div id="infoCorreo"></div>
 								</div>
 							</div>
-						</form>							
-					</div>
+							<div class="row my-3">
+								<div class="col-md-6">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Telefono</span>
+										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="telefono" id="telefono">
+									</div>
+								</div>
+
+
+								<div class="col-md-6" id="oculto">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Contraseña</span>
+										<input type="password" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="clave" id="clave">
+									</div>
+								</div>
+								
+							</div>
+							
+						</div>
+					</form>							
 
 					<!-- Modal footer -->
 					<div class="modal-footer">
@@ -123,6 +137,6 @@
 						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 					</div>
 				</div>
-			</div>
-		</div>	
+			</div>	
+		</div>
 	</div>
