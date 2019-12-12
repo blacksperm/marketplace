@@ -33,8 +33,9 @@
 						tabla +=
 						'<tr>'+
 						'<td>'+n+'</td>'+
-						'<td>'+datos[i].producto+'</td>'+
+						'<td>'+datos[i].nombre_producto+'</td>'+
 						'<td>'+datos[i].tipo_producto+'</td>'+
+						'<td>'+datos[i].n_marca+'</td>'+
 						'<td>'+datos[i].precio+'</td>'+
 						'<td>'+datos[i].usuario+'</td>'+
 						'<td>'+datos[i].descripcion+'</td>'+
@@ -45,6 +46,11 @@
 						'</td>'+
 						'<td>'+'<a href="javascript:;" class="btn btn-info btn-sm item-edit" data="'+datos[i].id_requerimiento+'">Editar</a>'+
 						'</td>'+
+
+						'<td>'+'<a href="javascript:;" class="btn btn-primary btn-sm aply" data="'+datos[i].id_requerimiento+'">Aplicar</a>'+
+						'</td>'+
+
+
 						'</tr>';
 						//incrementamos la variable que nos sirve de correlativo
 						n++;
@@ -60,7 +66,7 @@
 //**************************************************************************************************************
 
 		//cuando damos click al boton eliminar de cada registro de la tabla_alumnos se ejecutara lo siguiente
-		$('#requerimiento').on('click', '.borrar', function(){
+		$('#trequerimiento').on('click', '.borrar', function(){
 
 			$id = $(this).attr('data');//para capturar el dato segun el boton que demos click
 
@@ -155,7 +161,7 @@
 
 			transaccion();//llamado a la funcion para mostrar sexos
 
-		function transaccion(){
+			function transaccion(){
 			//Definimos que trabajaremos con ajax
 			$.ajax({
 				//tipo de solicitud a realizar
@@ -186,6 +192,44 @@
 				}
 			});
 		}//fin de funcion para mostrar sexos
+
+
+
+
+
+					marca();//llamado a la funcion para mostrar sexos
+
+					function marca(){
+			//Definimos que trabajaremos con ajax
+			$.ajax({
+				//tipo de solicitud a realizar
+				type: 'ajax',
+				//direccion hacia donde enviaremos la informacion (controlador/metodo)
+				url: '<?= base_url('req_controller/marca') ?>',
+				//Tipo de respuesta que recibiremos
+				dataType: 'json',
+
+				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
+				//los registros de la tabla sexo
+				success: function(datos){
+					//Creamos una variable que servira para crear los option del select
+					var op = '';
+					//variable para recorrer el for
+					var i;
+
+					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
+					op +="<option value=''>--Seleccione una Marca--</option>";
+					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
+					//osea, numero de registros recibidos
+					for(i=0; i<datos.length; i++){
+						//en la variable op vamos guardando cada registro obtenido del modelo
+						op +="<option value='"+datos[i].id_marca+"'>"+datos[i].n_marca+"</option>";
+					}
+					//al select con el id sexo le entregamos la variable op que contiene los option
+					$('#marca').html(op);
+				}
+			});
+		}
 
 
 		usuario();//llamado a la funcion para mostrar sexos
@@ -309,6 +353,7 @@
 					$('#id').val(datos.id_requerimiento);
 					//en el input del formulario con id "nombre" colocamos la informacion del campo nombre
 					$('#nproducto').val(datos.nombre_producto);
+					$('#marca').val(datos.id_marca);
 					//en el input del formulario con id "apellido" colocamos la informacion del campo apellido
 					$('#producto').val(datos.id_tipo_producto);
 					//en el input del formulario con id "sexo" colocamos la informacion del campo id_sexo
@@ -320,6 +365,23 @@
 				}
 			});
 		});//fin de evento editar
+
+
+			//cuando damos click al boton de editar de cada registro de la tabla_alumnos se ejecutara lo siguiente	
+			$('#trequerimiento').on('click', '.aply', function(){
+			//para capturar el dato segun el boton que demos click
+			var id = $(this).attr('data');
+
+			$('#propuesta').modal('show');//Para mostrar el modal 
+			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
+			$('#propuesta').find('.modal-title').text('Ofertar al requerimiento');
+			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
+
+			$('#propuesta').attr('action','<?= base_url('controller/propuesta_controller/ingresar')?>');
+		});//fin de evento editar
+
+
+
 
 	});//fin de document.ready
 

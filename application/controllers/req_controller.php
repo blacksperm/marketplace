@@ -32,6 +32,10 @@ class req_controller extends CI_Controller {
 		$res = $this->req_model->producto();
 		echo json_encode($res);
 	}
+		public function marca(){
+		$res = $this->req_model->marca();
+		echo json_encode($res);
+	}
 	public function transaccion(){
 		$res = $this->req_model->transaccion();
 		echo json_encode($res);
@@ -45,6 +49,7 @@ class req_controller extends CI_Controller {
 	public function ingresar(){
 		$datos['nproducto'] = $this->input->post('nproducto');
 		$datos['producto'] = $this->input->post('producto');
+		$datos['marca']=$this->input->post('marca');//
 		$datos['precio'] = $this->input->post('precio');
 		$datos['usuario'] = $this->input->post('usuario');
 		$datos['descripcion'] = $this->input->post('descripcion');
@@ -64,6 +69,7 @@ class req_controller extends CI_Controller {
 		$datos['id'] = $this->input->post('id_reque');
 		$datos['nproducto'] = $this->input->post('nproducto');
 		$datos['producto'] = $this->input->post('producto');
+		$datos['marca']= $this->input->post('marca');
 		$datos['precio'] = $this->input->post('precio');
 		$datos['usuario'] = $this->input->post('usuario');
 		$datos['descripcion'] = $this->input->post('descripcion');
@@ -73,6 +79,9 @@ class req_controller extends CI_Controller {
 
 		echo json_encode($res);
 	}
+
+
+
 
 
 }
