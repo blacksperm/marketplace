@@ -1,12 +1,12 @@
+<link rel="stylesheet" href="<?= base_url('props/bootstrap/font/css/font-awesome.css') ?>">
 <?php $this->load->view('navbar'); ?>
-
 <?php $this->load->view('valid/valid_chpw'); ?>
 </head>
 <body style="background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);">
 	<br><br>
 	<?php $user = $this->session->userdata('id'); ?>
 	<br>
-	<form id="form" action="<?php echo base_url().'usuario_cont/change_pw' ?>" method="POST" autocomplete="off">
+	<form id="form" action="<?php echo base_url().'user_comps/change_pw' ?>" method="POST" autocomplete="off">
 		<center>
 			<div class="card card-signin my-5 col-md-4" style="background-color: #009AC0;">
 				<br>
@@ -17,16 +17,24 @@
 				<div class="card-body">
 					<div>
 						<label style="font-family: 'verdana', cursive; font-size: 20px;">Digite su contraseña actual</label>
-						<input type="password" id="clave" name="clave" placeholder="--Contraseña--" style="box-shadow: 0 0 25px red;" class="form-control">
+
+						<div class="row">
+							<div class="col">
+								<input type="password" id="clave" name="clave" placeholder="--Contraseña--" style="box-shadow: 0 0 25px red; margin-left: 60px;width: 360px; margin-top: 5px" class="form-control">
+							</div>
+							<div class="col">
+								<button title="Mostrar/Ocultar clave" style="margin-top: 6px;margin-bottom: 5px;margin-right: 35px" class="btn btn-secondary" type="button" onclick="mostrarPasswordAct()"> <span class="fa fa-eye-slash icon" id="show_pw"></span></button>
+							</div>
+						</div>
 						<div style="color: red;" id="infocontra">Primero complete este campo</div>
-						<button title="Mostrar/Ocultar clave" style="margin-top: 6px;margin-bottom: 5px;margin-left: 5px" class="btn btn-secondary" type="button" onclick="mostrarPasswordAct()"> <span class="fa fa-eye-slash icon" id="show_pw"></span></button>
+
 
 					</div>
 					<br><br><br><br>
 
 					<label style="font-family: 'verdana', cursive; font-size: 20px;">Digite su nueva contraseña</label>
 					<input type="password" name="contra1" id="contra1" placeholder="--Contraseña--" class="form-control" readonly>
-					<div id="infocontrarep"></div>
+					<div id="infocontrarep"></div><br>
 
 					<label style="font-family: 'verdana', cursive; font-size: 20px;margin-top: 30px;">Compruebe su nueva contraseña</label>
 					<input type="password" name="contra2" id="contra2" placeholder="--Contraseña--" class="form-control" readonly>

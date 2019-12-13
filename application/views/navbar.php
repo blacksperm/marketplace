@@ -17,10 +17,10 @@ ul li{
 }
 </style>
 </head>
-
+<!-- background: -webkit-linear-gradient(left, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 0%, rgba(33,180,226,1) 0%, rgba(183,222,237,1) 100%);margin-top: 5px -->
 <body>
-  <nav class="navbar navbar-expand-lg navbar-ling" style="background: -webkit-linear-gradient(left, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 0%, rgba(33,180,226,1) 0%, rgba(183,222,237,1) 100%);margin-top: 5px;">
-    <a class="navbar-brand" style="font-family: 'sastisfy';font-size:35px; color: white;margin-left: 5px">Colegio</a>
+  <nav class="navbar navbar-expand-lg navbar-ling" style="background: transparent;">
+    <a class="navbar-brand" style="font-family: 'sastisfy';font-size:35px; color: white;margin-left: 5px; text-shadow: 1px 2px #999;">MarketPlace</a>
 
    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,33 +30,11 @@ ul li{
           if($this->session->userdata('logged')==TRUE){echo "";}?>
         </font>
 
-        <li class="nav-item" style="margin-bottom: 20px">
-          <a class="nav-link active" href="<?= base_url('colegiocontroller/index') ?>">Docentes</a>
-        </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('encargado_controller/index') ?>">Encargados</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('notas_controller/index') ?>">Notas</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('colegio_controller/index') ?>">Facturación</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('usuario_cont/index') ?>">Usuarios</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('pago/index') ?>">Pagos</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('alumnos_controller/index') ?>">Alumnos</a>
-        </li>
+<!-- //Así se crean los links del Navbar -->
+<!--         <li class="nav-item">
+          <a class="nav-link active" href="<?= base_url('ejemplo_controller/index') ?>">Algún sitio lejano</a>
+        </li> -->
 
 
       </ul>  
