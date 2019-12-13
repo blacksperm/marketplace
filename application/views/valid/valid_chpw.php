@@ -6,7 +6,7 @@
 			$.ajax({
 				type: 'ajax',
 				method: 'post',
-				url: '<?= base_url('usuario_cont/validar_clave') ?>',
+				url: '<?= base_url('user_comps/validar_clave') ?>',
 				data: {contra:$pw, user:$user},
 				dataType: 'json',
 				success: function(resp){

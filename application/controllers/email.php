@@ -11,9 +11,9 @@ class email extends CI_Controller{
 
     public function Account_reset(){
         $data['title'] = 'Recuperar cuenta';
-        $this->load->view('templates/header', $data);
+        $this->load->view('template/header', $data);
         $this->load->view('rec_cueview');
-        $this->load->view('templates/footer');
+        $this->load->view('template/footer');
     }
 
     
@@ -29,7 +29,9 @@ class email extends CI_Controller{
             if($test->correo == $correus){
                 $data['msj2'] = "Correo correcto";
                 $data['compr'] =  $correus;
-                $nomb = $test->nombre;
+                $apll = $test->apellido;
+                $nmb = $test->nombre;
+                $nomb = '$nmb $apll';
                 $usuario = $test->usuario;
                 
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#%^&*_,./?;:[]{}\|=+';
