@@ -9,9 +9,9 @@ class login_cont extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Iniciar Sesión';
-		$this->load->view('template/header', $data);
+		$this->load->view('templates/header', $data);
 		$this->load->view('login_view');
-		$this->load->view('template/footer');
+		$this->load->view('templates/footer');
 	}
 
 	public function Ingresar(){
