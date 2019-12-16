@@ -98,10 +98,8 @@
 				}
 
 
-				$('#btnGuardar').click(function(){
-					$url = $('#formPropuesta').attr('action');
-					$data = $('#formPropuesta').serialize();
 
+<<<<<<< HEAD
 					$.ajax({
 
 						type: 'ajax',
@@ -128,6 +126,8 @@
 				}
 				});
 				});
+=======
+>>>>>>> rigo
 
 
 				$('#tabla_propuesta').on('click','.item-edit',function(){
