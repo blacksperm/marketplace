@@ -8,19 +8,22 @@ class Upload_files extends CI_Controller
 
 
     public function index(){
+        $data = array('title' => 'Marketplace || propúesta');
+        $this->load->view('template/header',$data);
         $this->load->view('upload_files');
+        $this->load->view('template/footer');
     }
     
     function subir(){
 
-       $this->load->library('upload');
-       $config = array( 
+     $this->load->library('upload');
+     $config = array( 
         'upload_path' => 'uploads/files/',
         'allowed_types' => 'jpg|png'
     );
-       $variableFile = $_FILES;
-       $filesCount = count($_FILES['userFiles']['name']);
-       for($i = 0; $i < $filesCount; $i++){
+     $variableFile = $_FILES;
+     $filesCount = count($_FILES['userFiles']['name']);
+     for($i = 0; $i < $filesCount; $i++){
         $_FILES['userFiles']['name']     = $variableFile['userFiles']['name'][$i];
         $_FILES['userFiles']['type']     = $variableFile['userFiles']['type'][$i];
         $_FILES['userFiles']['tmp_name'] = $variableFile['userFiles']['tmp_name'][$i];
