@@ -9,14 +9,14 @@ class user_comps extends CI_Controller{
 
 	public function cambiar_clave(){
 		$data['title'] = "Cambiar Contraseña";
-		$this->load->view('templates/header', $data);
+		$this->load->view('template/header', $data);
 		$this->load->view('pwchange_view');
-		$this->load->view('templates/footer');
+		$this->load->view('template/footer');
 	}
 	public function change_pw(){
 		$data['usuario'] = $_POST['usuario'];
 		$data['clave'] = md5($_POST['contra_master']);
-		$this->usuario_model->change_pass($data);
+		$this->chpw_model->change_pass($data);
 
 		if($this->session->userdata('logged') == true) {
 			$u_data = array('logged' => false);
@@ -26,7 +26,7 @@ class user_comps extends CI_Controller{
 		redirect('login_cont/index', 'refresh');
 	}
 	public function validar_clave(){
-		$res = $this->usuario_model->validar_clave();
+		$res = $this->chpw_model->validar_clave();
 		echo json_encode($res);
 	}
 }

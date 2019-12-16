@@ -9,9 +9,9 @@ class login_cont extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Iniciar Sesión';
-		$this->load->view('templates/header', $data);
+		$this->load->view('template/header', $data);
 		$this->load->view('login_view');
-		$this->load->view('templates/footer');
+		$this->load->view('template/footer');
 	}
 
 	public function Ingresar(){
@@ -20,16 +20,16 @@ class login_cont extends CI_Controller{
 		$dat_lg = $this->login_model->validar($data);
 
 		if($dat_lg){
-			$u_data = array('id' => $dat_lg->id_usuario, 'usuario' => $dat_lg->usuario, 'nombre' => $dat_lg->nombre, 'logged' => TRUE, 'rol' => $dat_lg->id_rol);
+			$u_data = array('id' => $dat_lg->id_usuario, 'usuario' => $dat_lg->usuario, 'nombre' => $dat_lg->nombre, 'apellido' => $dat_lg->apellido, 'logged' => TRUE, 'rol' => $dat_lg->id_rol);
 			$this->session->set_userdata($u_data);
-			redirect('usuario_cont/index', 'refresh');
+			redirect('propuesta_controller/index', 'refresh');
 
 		}else{
 			$data['invalid'] = "Error";
 			$data['title'] = 'Iniciar Sesión';
-			$this->load->view('templates/header', $data);
+			$this->load->view('template/header', $data);
 			$this->load->view('login_view');
-			$this->load->view('templates/footer');
+			$this->load->view('template/footer');
 		}
 	}
 
