@@ -8,6 +8,7 @@
 					<label>Choose Files</label>
 					<input type="file" id="file" class="form-control" name="userFiles[]" multiple/>
 					<div id="preview"></div>
+					<div id="preview1"></div>
 				</div>
 				<div class="form-group">
 					<input class="form-control" type="submit" value="subir">
@@ -34,4 +35,6 @@
   	preview.append(image);
   };
 }
+
+
 </script>
