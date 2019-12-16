@@ -44,7 +44,7 @@ class usuario_controller extends CI_Controller {//inicio de la clase usuario_con
 		$datos['apellido'] = $this->input->post('apellidos');
 		$datos['edad']   = $this->input->post('edad');
 		$datos['usuario']= $this->input->post('usuario');
-		$datos['clave']  = $this->input->post('clave');
+		$datos['clave']  = md5($this->input->post('clave'));
 		$datos['rol']    = $this->input->post('rol');
 		$datos['correo'] = $this->input->post('correo');
 		$datos['telefono'] = $this->input->post('telefono');
@@ -67,7 +67,7 @@ class usuario_controller extends CI_Controller {//inicio de la clase usuario_con
 		$datos['apellido'] = $this->input->post('apellidos');
 		$datos['edad']     = $this->input->post('edad');
 		$datos['usuario']  = $this->input->post('usuario');
-		$datos['clave']    = $this->input->post('clave');
+		$datos['clave']    = md5($this->input->post('clave'));
 		$datos['rol']      = $this->input->post('rol');
 		$datos['correo']   = $this->input->post('correo');
 		$datos['telefono'] = $this->input->post('telefono');
