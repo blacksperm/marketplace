@@ -32,6 +32,7 @@ var tabla = '';
 		'<td>'+datos[i].usuario+'</td>'+
 		'<td>'+datos[i].rol+'</td>'+
 		'<td>'+datos[i].correo+'</td>'+
+		'<td>'+datos[i].contacto+'</td>'+
 
 		//se crea  las funciones de eliminar y editar
 		'<td>'+'<a href="javascript:;" class="btn btn-danger btn-sm borrar" data="'+datos[i].id_usuario+'">ELIMINAR</a>'+'</td>'+
@@ -238,11 +239,16 @@ $('#tabla_usuarios').on('click', '.item-edit', function(){
 					//en el input del formulario con id "edad" colocamos la informacion del campo apellido
 					$('#edad').val(datos.edad);
 					//en el input del formulario con id "usuario" colocamos la informacion del campo usuario
-					$('#usuario').val(datos.usuario);
+					$('#usuarios').val(datos.usuario);
 					//en el input del formulario con id "rol" colocamos la informacion del campo id_rol
 					$('#rol').val(datos.id_rol);
 					//en el input del formulario con id "correo" colocamos la informacion del campo correo
 					$('#correo').val(datos.correo);
+					//en el input del formulario con id "correo" colocamos la informacion del campo correo
+					$('#telefono').val(datos.contacto);
+
+
+
 
 				}
 			});
