@@ -61,16 +61,8 @@ class req_model extends CI_Model {
 			return "add";
 		}
 	}
-	public function datos($id){
-		$this->db->where('id_requerimiento',$id);
-		$exe = $this->db->get('requerimiento');
-
-		if($exe->num_rows()>0){
-			return $exe->row();
-		}else{
-			return false;
-		}
-	}
+	
+	
 
 	public function actualizar($datos){
 		$this->db->set('nombre_producto', $datos['nproducto']);
@@ -87,6 +79,41 @@ class req_model extends CI_Model {
 			return "edi";
 		}
 	}
+
+
+
+	public function set_propuesta($datos){
+
+		$this->db->set('id_usuario',$datos["usuario"]);
+		$this->db->set('producto',$datos["producto"]);
+		$this->db->set('descripcion',$datos["descripcion"]);
+		$this->db->set('id_estado',$datos["estado"]);
+		//$this->db->set('id_propuesta_imagen',$datos["img"]);
+		$this->db->set('precio',$datos["precio"]);
+
+		$this->db->insert('propuesta');
+		if($this->db->affected_rows()>0){
+			//return "add";
+			
+		$last_id = $this->db->insert_id();//
+		
+		$this->db->set('id_requerimiento',$datos["idR"]);
+		$this->db->set('id_propuesta',$last_id);
+		$this->db->insert('requerimiento_propuesta');
+
+		if($this->db->affected_rows()>0){
+return "add";
+		}
+
+	}else{
+		
+	}
+
+
+
+}
+
+
 }
 
 

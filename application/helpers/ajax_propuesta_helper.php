@@ -98,36 +98,7 @@
 				}
 
 
-				$('#btnGuardar').click(function(){
-					$url = $('#formPropuesta').attr('action');
-					$data = $('#formPropuesta').serialize();
 
-					$.ajax({
-
-						type: 'ajax',
-						method: 'post',
-						url: $url,
-						data: $data,
-						dataType: 'json',
-						success: function(respuesta){
-						$('#propuesta').modal('hide');
-
-
-						if(respuesta=='add'){
-							alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
-						}
-						else if (respuesta=='edi'){
-							alertify.notify('Propuesta actualizado exitosamente!','success',10,null);
-						}
-						else{
-							alertify.notify('Error al Ingresar!','error',10,null);
-						}
-						$('#formPropuesta')[0].reset();
-						mostrar_propuesta();
-						
-				}
-				});
-				});
 
 
 				$('#tabla_propuesta').on('click','.item-edit',function(){

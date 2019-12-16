@@ -61,8 +61,11 @@
 				}
 			});
 		};//fin de funcion mostrar Alumnos
+	
 
 
+
+		
 //**************************************************************************************************************
 
 		//cuando damos click al boton eliminar de cada registro de la tabla_alumnos se ejecutara lo siguiente
@@ -371,15 +374,60 @@
 			$('#trequerimiento').on('click', '.aply', function(){
 			//para capturar el dato segun el boton que demos click
 			var id = $(this).attr('data');
+			
 
 			$('#propuesta').modal('show');//Para mostrar el modal 
 			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
 			$('#propuesta').find('.modal-title').text('Ofertar al requerimiento');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
 
-			$('#propuesta').attr('action','<?= base_url('controller/propuesta_controller/ingresar')?>');
+			$('#formPropuesta').attr('action','<?= base_url('req_controller/ingresarP')?>');
+			$('#idR').val(id);//COLOCAR ID DE REUQERIMIENTO AL INPUT HIDDEN
 		});//fin de evento editar
 
+
+
+				$('#btnGuardarP').click(function(){
+					$url = $('#formPropuesta').attr('action');
+
+					$data = $('#formPropuesta').serialize();
+					
+
+					$.ajax({
+
+						type: 'ajax',
+						method: 'post',
+						url: $url,
+						data: $data,
+						
+						dataType: 'json',
+						success: function(respuesta){
+						$('#propuesta').modal('hide');
+
+
+						if(respuesta=='add'){
+							alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
+						}
+						else if (respuesta=='edi'){
+							alertify.notify('Propuesta actualizado exitosamente!','success',10,null);
+						}
+						else{
+							alertify.notify('Error al Ingresar!','error',10,null);
+						}
+						$('#formPropuesta')[0].reset();
+						mostrar_propuesta();
+						
+				},
+				error: function(){
+					alert("estas aqui");
+				}
+				});
+				});
+
+
+
+
+		
 
 
 

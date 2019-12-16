@@ -7,6 +7,7 @@ class req_controller extends CI_Controller {
 	public function __construct(){
 		parent:: __construct();
 		$this->load->model('req_model');
+		$this->load->model('propuesta_model');
 	}
 
 	public function index(){
@@ -32,7 +33,7 @@ class req_controller extends CI_Controller {
 		$res = $this->req_model->producto();
 		echo json_encode($res);
 	}
-		public function marca(){
+	public function marca(){
 		$res = $this->req_model->marca();
 		echo json_encode($res);
 	}
@@ -78,6 +79,21 @@ class req_controller extends CI_Controller {
 		$res = $this->req_model->actualizar($datos);
 
 		echo json_encode($res);
+	}
+
+
+	public function ingresarP(){
+		$datos['idR'] = $this->input->post('id_requerimiento');//
+		$datos['usuario']= $this->input->post('usuario');
+		$datos['producto']= $this->input->post('producto');
+		$datos['descripcion']= $this->input->post('descripcion');
+		$datos['estado']= $this->input->post('estado');
+		//$datos['img']= $this->input->post('img');
+		$datos['precio']=$this->input->post('precio');
+
+
+		$respuesta = $this->req_model->set_propuesta($datos);//
+		echo json_encode($respuesta);
 	}
 
 

@@ -159,7 +159,7 @@
 
 
 
-	<!-- Modal Ingresar -->
+	<!-- Modal Ingresar Propuesta -->
 
 
 	<div class="modal fade" id="propuesta">
@@ -175,7 +175,7 @@
 				<!-- Modal body -->
 				<div class="modal-body">
 					<form id="formPropuesta" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-						<input type="hidden" name="id_propuesta" id="id" value="0">
+						<input type="text" name="id_requerimiento" id="idR" value="0">
 						<div class="row">
 							<div class="col">
 								<div class="input-group">
@@ -238,7 +238,7 @@
 
 				<!-- Modal footer -->
 				<div class="modal-footer">
-					<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>
+					<button type="button" id="btnGuardarP" class="btn btn-primary">Guardar</button>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
