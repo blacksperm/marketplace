@@ -47,6 +47,7 @@ class usuario_controller extends CI_Controller {//inicio de la clase usuario_con
 		$datos['clave']  = md5($this->input->post('clave'));
 		$datos['rol']    = $this->input->post('rol');
 		$datos['correo'] = $this->input->post('correo');
+		$datos['telefono'] = $this->input->post('telefono');
 
 		$respuesta = $this->usuario_model->set_usuario($datos);
 		echo json_encode($respuesta);
@@ -69,10 +70,17 @@ class usuario_controller extends CI_Controller {//inicio de la clase usuario_con
 		$datos['clave']    = md5($this->input->post('clave'));
 		$datos['rol']      = $this->input->post('rol');
 		$datos['correo']   = $this->input->post('correo');
+		$datos['telefono'] = $this->input->post('telefono');
 		$datos['id_usuarios'] = $this->input->post('id_usuarios');
 
 		$respuesta = $this->usuario_model->actualizar($datos);
 		echo json_encode($respuesta);
 	}//fin del metodo actualizar
+
+	public function validarCorreo(){
+		$correo = $this->input->post('correo');
+		$res = $this->usuario_model->validarCorreo($correo);
+		echo json_encode($res);
+	}
 
 }//fin de la clase usuario_controller
