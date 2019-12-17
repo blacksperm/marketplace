@@ -61,7 +61,7 @@
 				}
 			});
 		};//fin de funcion mostrar Alumnos
-	
+		
 
 
 
@@ -387,21 +387,21 @@
 
 
 
-				$('#btnGuardarP').click(function(){
-					$url = $('#formPropuesta').attr('action');
+			$('#btnGuardarP').click(function(){
+				$url = $('#formPropuesta').attr('action');
 
-					$data = $('#formPropuesta').serialize();
+				$data = $('#formPropuesta').serialize();
+				
+
+				$.ajax({
+
+					type: 'ajax',
+					method: 'post',
+					url: $url,
+					data: $data,
 					
-
-					$.ajax({
-
-						type: 'ajax',
-						method: 'post',
-						url: $url,
-						data: $data,
-						
-						dataType: 'json',
-						success: function(respuesta){
+					dataType: 'json',
+					success: function(respuesta){
 						$('#propuesta').modal('hide');
 
 
@@ -417,17 +417,17 @@
 						$('#formPropuesta')[0].reset();
 						mostrar_propuesta();
 						
-				},
-				error: function(){
-					alert("estas aqui");
-				}
+					},
+					error: function(){
+						alert("estas aqui");
+					}
 				});
-				});
+			});
 
 
 
 
-		
+			
 
 
 

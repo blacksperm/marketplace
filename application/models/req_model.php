@@ -102,7 +102,7 @@ class req_model extends CI_Model {
 		$this->db->insert('requerimiento_propuesta');
 
 		if($this->db->affected_rows()>0){
-return "add";
+			return "add";
 		}
 
 	}else{
