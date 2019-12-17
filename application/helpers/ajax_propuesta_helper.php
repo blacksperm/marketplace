@@ -97,64 +97,68 @@
 			});
 		}
 
-
-
-		$.ajax({
-
-			type: 'ajax',
-			method: 'post',
-			url: $url,
-			data: $data,
-			dataType: 'json',
-			success: function(respuesta){
-				$('#propuesta').modal('hide');
-
-
-				if(respuesta=='add'){
-					alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
-				}
-				else if (respuesta=='edi'){
-					alertify.notify('Actualizado exitosamente!','success',10,null);
-				}
-				else{
-					alertify.notify('Error al Ingresar','error',10,null);
-				}
-				$('#formPropuesta')[0].reset();
-				mostrar_propuesta();
-
-			}
-		});
-
-
-
 		$('#tabla_propuesta').on('click','.item-edit',function(){
 			var id= $(this).attr('data');
 			$('#propuesta').modal('show');
 			$('#propuesta').find('.modal-title').text('Actualizar Propuesta');
 			$('#formPropuesta').attr('action','<?= base_url('propuesta_controller/actualizar') ?>');
 
-
 			$.ajax({
+
 				type: 'ajax',
 				method: 'post',
-				url: '<?= base_url('propuesta_controller/get_datos') ?>',
-				data: {id:id},
+				url: $url,
+				data: $data,
 				dataType: 'json',
+				success: function(respuesta){
+					$('#propuesta').modal('hide');
 
-				success: function($datos){
-					$('#id').val($datos.id_propuesta);
-					$('#usuario').val($datos.id_usuario);
-					$('#producto').val($datos.producto);
-					$('#descripcion').val($datos.descripcion);
-					$('#estado').val($datos.id_estado);
-					$('#img').val($datos.id_propuesta_imagen);
-					$('#precio').val($datos.precio);
+
+					if(respuesta=='add'){
+						alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
+					}
+					else if (respuesta=='edi'){
+						alertify.notify('Actualizado exitosamente!','success',10,null);
+					}
+					else{
+						alertify.notify('Error al Ingresar','error',10,null);
+					}
+					$('#formPropuesta')[0].reset();
+					mostrar_propuesta();
+
 				}
-
 			});
+
+
+
+			$('#tabla_propuesta').on('click','.item-edit',function(){
+				var id= $(this).attr('data');
+				$('#propuesta').modal('show');
+				$('#propuesta').find('.modal-title').text('Actualizar Propuesta');
+				$('#formPropuesta').attr('action','<?= base_url('propuesta_controller/actualizar') ?>');
+
+
+				$.ajax({
+					type: 'ajax',
+					method: 'post',
+					url: '<?= base_url('propuesta_controller/get_datos') ?>',
+					data: {id:id},
+					dataType: 'json',
+
+					success: function($datos){
+						$('#id').val($datos.id_propuesta);
+						$('#usuario').val($datos.id_usuario);
+						$('#producto').val($datos.producto);
+						$('#descripcion').val($datos.descripcion);
+						$('#estado').val($datos.id_estado);
+						$('#img').val($datos.id_propuesta_imagen);
+						$('#precio').val($datos.precio);
+					}
+
+				});
+			});
+
+
+
 		});
-
-
-
-	});
-</script>
+	</script>
