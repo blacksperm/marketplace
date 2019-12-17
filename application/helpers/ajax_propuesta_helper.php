@@ -99,7 +99,6 @@
 
 
 
-		<<<<<<< HEAD
 		$.ajax({
 
 			type: 'ajax',
@@ -122,7 +121,7 @@
 				}
 				$('#formPropuesta')[0].reset();
 				mostrar_propuesta();
-				
+
 			}
 		});
 
