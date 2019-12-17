@@ -11,6 +11,17 @@ class login_model extends CI_Model{
 		$resu = $exe->row();
 		return $resu;
 	}
+
+	public function cons_account($data){
+		$this->db->where('usuario', $data['usr']);
+		$this->db->get('usuarios');
+
+		if($this->db->affected_rows() >0){
+			return 'usr_exists';
+		}else{
+			return false;
+		}
+	}
 }
 
 ?>

@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="<?= base_url('props/bootstrap/font/css/font-awesome.css') ?>">
 <script type="text/javascript" src="<?= base_url('props/bootstrap/js/login_val.js') ?>"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
-<body style="background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);">
+<body style="background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%); -webkit-user-select:none;">
 	<br><br><br><br>
-	
+	<?php $this->load->view('valid/login_val_xtnd') ?>
 	<center>
 		<div class="card container" style="background-color: #009AC0;width: 450px;">
 			<br>
@@ -15,9 +15,10 @@
 			<div>					
 				<table>
 					<tr>
-						<form action="<?= base_url().'login_cont/Ingresar' ?>" method="post" onsubmit="return login_valid();">
+						<form id="login_form" action="<?= base_url().'login_cont/Ingresar' ?>" method="post" onsubmit="return login_valid();">
 							<td><label style="font-family: 'Verdana', font-size: 15px;"><center><h6>Digite su Usuario</h6></center></label></td>
 							<td><input type="text" style="border-radius: 5px;width: 75%;height: 5%;" name="usr" id="usr" placeholder="--Username--" class="form-control"></td>
+							<div id="info_usr"></div>
 						</tr>
 						<tr>
 							<td><label style= "font-family: 'Verdana',font-size: 15px;margin-top: 20px;"><center><h6>Digite su Contraseña</h6></center></label></td>
@@ -29,7 +30,7 @@
 					<label class="form-check-label" for="dropdownCheck2">
 						Mantener sesión activa
 					</label>
-					 <br>
+					<br>
 					<input type="submit" id="send" name="" class="btn btn-success" style="font-size: 80%;  margin-top: 9px; width: 25%; height: 7%; border-radius: 10px;margin-bottom: 10px;" Value="INGRESAR">
 				</form>
 			</div>
@@ -45,13 +46,17 @@
 		</center>
 
 		<?php if(isset($invalid)){ ?>
-			<script>
-				Swal.fire({
-					icon: 'error',
-					title: 'Error al validar sus credenciales',
-					confirmButtonText: '<a style="color: white; text-decoration:none;" href="index">Enterado</a>'
-				})
-			</script>
+			<div style="-webkit-user-select:none;">
+				<script>
+					Swal.fire({
+						icon: 'error',
+						title: 'Error al validar sus credenciales',
+						showConfirmButton: false,
+						// allowOutsideClick: false,
+						footer: '<button type="button" class="btn btn-primary btn-lg" id="invalid">Enterado</button>'
+					})
+				</script>
+			</div>
 <!-- 			<script type="text/javascript">
 				document.getElementById('send').disabled = true;
 			</script> -->
