@@ -58,6 +58,7 @@
 					//en la vista la etiqueta <tbody> contiene el id "tabla_alumnos"
 					//con esta linea entregamos la variable que contiene el cuerpo de la tabla
 					$('#trequerimiento').html(tabla);
+					
 				}
 			});
 		};//fin de funcion mostrar Alumnos

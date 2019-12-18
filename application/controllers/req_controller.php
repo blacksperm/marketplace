@@ -15,6 +15,7 @@ class req_controller extends CI_Controller {
 			'title' =>'requerimientos || Ajax');
 		$this->load->view('template/header',$data);
 		$this->load->view('req_view');
+		$this->load->view('welcome');
 		$this->load->view('template/footer');
 	}
 
