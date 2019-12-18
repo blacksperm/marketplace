@@ -13,7 +13,7 @@
 					var clave = $("#clave").val();
 					if(resp==true){
 						$("#clave").css('boxShadow', '0 0 25px lime');
-						$("#infocontra").text('Contraseña correcta').css('color', 'lime');
+						$("#infocontra").text('Contraseña correcta para su Usuario').css('color', 'lime');
 						// $("#sender").attr('disabled', false);
 						$("#contra1").removeAttr("readOnly");
 						$("#contra2").removeAttr("readOnly");
@@ -152,9 +152,9 @@
 			}
 		});
 
-$("#contra1").blur(function(){
-	$("#contra1").attr('readOnly', true);
-});
+// $("#contra1").blur(function(){
+// 	$("#contra1").attr('readOnly', true);
+// });
 
 
 
@@ -188,7 +188,7 @@ $("#contra1").blur(function(){
 
 		// });
 
-		$("#contra2").change(function(){
+		$("#contra1").keyup(function(){
 			var contra1 = $("#contra1").val();
 			var contra2 = $("#contra2").val();
 
@@ -207,6 +207,7 @@ $("#contra1").blur(function(){
 
 
 			}else{
+
 				$("#sender").attr('disabled', true);
 				$("#contra1").css('boxShadow', '0 0 25px red');
 				$("#contra2").css('boxShadow', '0 0 25px red');
@@ -217,21 +218,79 @@ $("#contra1").blur(function(){
 
 		});
 
-		$("#contra2").focus(function(){
-			$("#sender").attr('disabled', true);
+
+
+		$("#contra2").keyup(function(){
+			var contra1 = $("#contra1").val();
+			var contra2 = $("#contra2").val();
+
+			if(contra1 == contra2){
+
+				$("#infocontrarep").text('OK').css('color', 'lime');
+				$("#infocontrarep2").text('OK').css('color', 'lime');
+				$("#contra1").css('boxShadow', '0 0 25px lime');
+				$("#contra2").css('boxShadow', '0 0 25px lime');
+
+				$("#contra2").css('boxShadow', '0 0 25px lime');
+				$("#contra_master").val(contra2);
+				$("#sender").attr('disabled', false);
+				// if(contra1 == contra2){
+				// }
+
+			}else{
+
+				$("#sender").attr('disabled', true);
+				$("#contra1").css('boxShadow', '0 0 25px red');
+				$("#contra2").css('boxShadow', '0 0 25px red');
+				$("#infocontrarep").text('').css('color', 'red');
+				$("#infocontrarep2").text('').css('color', 'red');
+
+			}
+
 
 		});
 
+		$("#contra1").blur(function(){
+			$contra1 = $("#contra1").val();
 
-		$("#contra2").focus(function(){
-			$("#sender").attr('disabled', true);
-
+			if($contra1.length == 0){
+				$("#contra1").css('boxShadow', '0 0 25px red');
+				$("#infocontrarep").text('Campo obligatorio').css('color', 'red');
+				$("#sender").attr('disabled', true);
+			}else{
+				$("#contra1").css('boxShadow', '0 0 25px lime');
+				$("#infocontrarep").text(' ').css('color', 'lime');
+				$("#sender").attr('disabled', false);
+			}
 		});
 
 
-		$("#th1").click(function(){
-			$("#min_char").css('color', '#5FEE0E');
+		$("#contra2").blur(function(){
+			$contra2 = $("#contra2").val();
+
+			if($contra2.length == 0){
+				$("#contra2").css('boxShadow', '0 0 25px red');
+				$("#infocontrarep2").text('Campo obligatorio').css('color', 'red');
+				$("#sender").attr('disabled', true);
+
+			}else{
+				$("#contra2").css('boxShadow', '0 0 25px lime');
+				$("#infocontrarep2").text(' ').css('color', 'lime');
+				$("#sender").attr('disabled', false);
+
+			}
 		});
+
+
+		// $("#contra2").focus(function(){
+		// 	$("#sender").attr('disabled', true);
+
+		// });
+
+
+		// $("#th1").click(function(){
+		// 	$("#min_char").css('color', '#5FEE0E');
+		// });
 
 
 
