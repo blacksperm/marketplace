@@ -40,6 +40,18 @@ class login_cont extends CI_Controller{
 		redirect('login_cont/index', 'refresh');
 	}
 
+	public function cons_account(){
+		$data['usr'] = $this->input->post('usr');
+		$respuesta = $this->login_model->cons_account($data);
+		echo json_encode($respuesta);
+	}
+
+	public function cons_pass(){
+		$data['pw'] = $this->input->post('pw');
+		$respuesta = $this->login_model->cons_pass($data);
+		echo json_encode($respuesta);
+	}
+
 }
 
 ?>
