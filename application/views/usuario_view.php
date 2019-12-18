@@ -1,22 +1,23 @@
 <?php $this->load->helper('usuario'); ?>
 <?php $this->load->helper('validacionesUsuario'); ?>
 <body>
+	<?php $this->load->view('navbar') ?>
 	<div class="container">
 		<button type="button" class="btn btn-success" id="nueUsu">Nuevo</button>
 
 
-		<table border="1" style="margin-top: 10px;">
-			<thead>
+		<table class="table"  style="margin-top: 10px; width: 100%;">
+			<thead  style="background-color: #8762A7;">
 				<tr>
-					<td>N°</td>
-					<td>Nombres</td>
-					<td>Edad</td>
-					<td>Usuario</td>
-					<td>Rol</td>
-					<td>Correo</td>
-					<td>N° de telefono</td>
-					<td>Eliminar</td>
-					<td>Editar</td>
+					<th style="color: white;">N°</th>
+					<th style="color: white;">Nombres</th>
+					<th style="color: white;">Edad</th>
+					<th style="color: white;">Usuario</th>
+					<th style="color: white;">Rol</th>
+					<th style="color: white;">Correo</th>
+					<th style="color: white;">N° de telefono</th>
+					<th style="color: white;">Eliminar</th>
+					<th style="color: white;">Editar</th>
 				</tr>
 			</thead>
 			<tbody id="tabla_usuarios">
@@ -127,10 +128,8 @@
 								</div>
 								
 							</div>
-							
-						</div>
-					</form>							
-
+						</form>							
+					</div>
 					<!-- Modal footer -->
 					<div class="modal-footer">
 						<button type="button" id="btnGuardar" class="btn btn-primary">Guardar</button>

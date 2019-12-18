@@ -1,58 +1,77 @@
-<style type="text/css">
-nav.navbar {
-  background-color: #191A1A;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  border-radius:10px;
-  text-align: center;
-  width: 90%;
-  height: 10vh;
-  <?php if($this->session->userdata('logged')==TRUE){echo "left: 5%;";}else{echo "left: 7%;";} ?>
-}
-
-ul li{
-  margin: 7px;
-  list-style: none;
-}
-</style>
-</head>
-<!-- background: -webkit-linear-gradient(left, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 0%, rgba(33,180,226,1) 0%, rgba(183,222,237,1) 100%);margin-top: 5px -->
-<body>
-  <nav class="navbar navbar-expand-lg navbar-ling" style="background: transparent;">
-    <a class="navbar-brand" style="font-family: 'sastisfy';font-size:35px; color: white;margin-left: 5px; text-shadow: 1px 2px #999;">MarketPlace</a>
-
-   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto"> 
-        <font color="Lime">
-          <?php 
-          if($this->session->userdata('logged')==TRUE){echo "";}?>
-        </font>
-
-
-<!-- //Así se crean los links del Navbar -->
-<!--         <li class="nav-item">
-          <a class="nav-link active" href="<?= base_url('ejemplo_controller/index') ?>">Algún sitio lejano</a>
-        </li> -->
-
-
-      </ul>  
-      <?php 
-      if($this->session->userdata('logged')==TRUE){ ?>
-        <label class="mr-4" style="font-family; font-size: 20px; color: white; margin-left: 30px">
-         <?php if($this->session->userdata('rol')== 1){echo "Sr. ";}elseif($this->session->userdata('rol')== 2){echo "Bienvenido/a: ";} ?>
-         <?php echo $this->session->userdata('nombre'); ?>
-
-         <img src="<?= base_url('props/img/profile.jpg')?>" width="30" height="30" class="d-inline-block align-top" alt="">
-
-       </label>   
-       <a href="<?= base_url('login_cont/cerrar_sesion/') ;?>"><button class="btn btn-success btn-sm my-2 my-sm-0">Cerrar Sesión</button></a>
-     <?php }else{ ?>
-      <a href="<?= base_url('/login_cont');?>"><button class="btn btn-success btn-sm my-2 my-sm-0">Iniciar Sesión</button></a>
-    <?php } ?>
-<div style="margin-left: 10px">
-  <a class="btn btn-primary btn-sm" href="<?= base_url('usuario_cont/cambiar_clave/'); ?>">Cambiar contraseña</a>
-</div>
+<div class="wrapper">
+  <div class="sidebar"  data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar-wrapper">
+      <div class="logo">
+        <a href="<?php echo base_url('inicio_controller'); ?>"  class="simple-text">
+          Inicio
+        </a>
+      </div>
+      <ul class="nav">
+        <li>
+          <a class="nav-link" href="<?php echo base_url('req_controller/index'); ?>">
+            <i class="nc-icon nc-notes"></i>
+            <p>Requerimientos</p>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="<?php echo base_url('req_controller/index'); ?>">
+            <i class="nc-icon nc-notes"></i>
+            <p>Propuestas</p>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="<?php echo base_url('usuario_controller/index'); ?>">
+            <i class="nc-icon nc-circle-09"></i>
+            <p>Usuarios</p>
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav-link" href="<?php echo base_url('usuario_controller/index'); ?>">
+            <i class="nc-icon nc-paper-2"></i>
+            <p>Marcas</p>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
-</nav>
+  <div class="main-panel">
+    <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#pablo"> User </a>
+        <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+          <span class="navbar-toggler-bar burger-lines"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navigation">
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#pablo">
+                <span class="no-icon">Account</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="no-icon">Dropdown</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="">
+                <span class="no-icon">Log out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+

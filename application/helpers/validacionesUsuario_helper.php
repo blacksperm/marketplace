@@ -1,5 +1,5 @@
 <script type="text/javascript">
- function disponibilidadCorreo($correo){
+   function disponibilidadCorreo($correo){
       //Creamos una variable llamada $id en la cual guardaremos el valor digitado en el input
       //dicha variable sera la enviada a la consulta para validar si existe un correo similar
 
@@ -145,9 +145,9 @@
 };
 
 
-
 $(document).ready(function(){
         //FORMATO DE MASCARAS
         $('#telefono').mask('0000-0000', {placeholder: '0000-0000'});
     });
+
 </script>
