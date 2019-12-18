@@ -6,7 +6,7 @@ class req_model extends CI_Model {
 
 
 	public function get_datos(){
-		$this->db->select('r.id_requerimiento,r.nombre_producto,t.tipo_producto,m.n_marca,r.descripcion,r. precio,u.id_usuario,u.usuario,tr.transaccion');
+		$this->db->select('r.id_requerimiento,r.nombre_producto,t.tipo_producto,m.n_marca,r.descripcion,concat("$",r. precio) AS precio,u.id_usuario,u.usuario,tr.transaccion');
 		$this->db->from('requerimiento r');
 		$this->db->join('tipo_producto t', 't.id_tipo_producto=r.id_tipo_producto');
 		$this->db->join('marca m', 'm.id_marca = r.id_marca');

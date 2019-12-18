@@ -235,42 +235,6 @@
 		}
 
 
-		usuario();//llamado a la funcion para mostrar sexos
-
-		function usuario(){
-			//Definimos que trabajaremos con ajax
-			$.ajax({
-				//tipo de solicitud a realizar
-				type: 'ajax',
-				//direccion hacia donde enviaremos la informacion (controlador/metodo)
-				url: '<?= base_url('req_controller/usuario') ?>',
-				//Tipo de respuesta que recibiremos
-				dataType: 'json',
-
-				//Si la peticion fue exitosa recibiremos una respuesta, en este caso en la variable "respuesta" recibiremos 
-				//los registros de la tabla sexo
-				success: function(datos){
-					//Creamos una variable que servira para crear los option del select
-					var op = '';
-					//variable para recorrer el for
-					var i;
-
-					//agregamos a op un option vacio para que no aparezca ninguna opcion seleccionada
-					op +="<option value=''>--Seleccione un usuario--</option>";
-					//recorremos los datos recibidos, con datos.length obtenemos la longitud del arreglo
-					//osea, numero de registros recibidos
-					for(i=0; i<datos.length; i++){
-						//en la variable op vamos guardando cada registro obtenido del modelo
-						op +="<option value='"+datos[i].id_usuario+"'>"+datos[i].usuario+"</option>";
-					}
-					//al select con el id curso le entregamos la variable op que contiene los option
-					$('#usuario').html(op);
-				}
-			});
-		}//fin de funcion para mostrar cursos
-
-
-
 		//agregamos un evento al boton del modal GUARDAR
 		$('#btnGuardar').click(function(){
 
@@ -374,11 +338,16 @@
 			$('#trequerimiento').on('click', '.aply', function(){
 			//para capturar el dato segun el boton que demos click
 			var id = $(this).attr('data');
+
+
+
+
+			//PROPUESTA
 			
 
 			$('#propuesta').modal('show');//Para mostrar el modal 
 			//en el modal que tiene id llamado alumno buscamos la clase "modal-title" y le agregamos el texto del encabezado
-			$('#propuesta').find('.modal-title').text('Ofertar al requerimiento');
+			$('#propuesta').find('.modal-title').text('Realizar Propuesta');
 			//modificamos el atributo action, le agregamos la ruta del controlador y modelo para actualizar
 
 			$('#formPropuesta').attr('action','<?= base_url('req_controller/ingresarP')?>');
@@ -423,6 +392,16 @@
 					}
 				});
 			});
+
+
+
+
+
+
+			//ACTUALIZAR PROPUESTA
+
+
+			
 
 
 
