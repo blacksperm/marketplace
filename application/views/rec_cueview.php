@@ -44,7 +44,7 @@
 		</script>
 	<?php } ?>
 
-		<?php if (isset($msj2)) { ?>
+	<?php if (isset($msj2)) { ?>
 		<script>
 			Swal.fire({
 				title: 'Cuenta Recuperada',
@@ -57,10 +57,10 @@
 		</script>
 	<?php } ?>
 
-<font style="color: transparent;">
-	<?php if(isset($compr)){echo $compr;} ?>
-	<?php if(isset($pwgen)){echo $pwgen;} ?>
-</font>
+	<font style="color: transparent;">
+		<?php if(isset($compr)){echo $compr;} ?>
+		<?php if(isset($pwgen)){echo $pwgen;} ?>
+	</font>
 
 </body>
 </html>
