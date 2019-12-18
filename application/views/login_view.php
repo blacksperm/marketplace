@@ -51,6 +51,7 @@
 					Swal.fire({
 						icon: 'error',
 						title: 'Error al validar sus credenciales',
+						html: 'Su Email y Contraseña no coinciden<br> Lamentamos los inconvenientes',
 						showConfirmButton: false,
 						// allowOutsideClick: false,
 						footer: '<button type="button" class="btn btn-primary btn-lg" id="invalid">Enterado</button>'
