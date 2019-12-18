@@ -58,20 +58,26 @@
 
 
 
-	<div style="position: absolute; top: 300px;right: 180px;">
+	<div style="position: absolute; top: 300px;right: 160px;">
 		<h5 align="center" style="color: purple">Características que debe <br> cumplir la nueva contraseña:</h5>
 		<div>
 			<table>
-				<tr><th id="th1">-Mínimo de 8 caracteres <li id="min_char" class="fa fa-check" style="color: transparent;"></li> </th></tr>
-				<tr><th>-Máximo de 15 caracteres <li id="max_char"class="fa fa-check" style="color: transparent;"></li></th></tr>
-				<tr><th>-Al menos una letra mayúscula <li id="mayus" class="fa fa-check" style="color: transparent;"></li></th></tr>
-				<tr><th>-Al menos una letra minúscula <li id="minus" class="fa fa-check" style="color: transparent;"></li></th></tr>
-				<tr><th>-Al menos un dígito <li id="numb" class="fa fa-check" style="color: transparent;"></li></th></tr>
-				<tr><th>-Sin espacios en blanco <li id="ns" class="fa fa-check" style="color: transparent;"></li></th></tr>
-				<tr><th>-Al menos un caracter especial (ej, $@$!%*?&) <li id="esp_char" class="fa fa-check" style="color: transparent;"></li></th></tr>
+				<tr><th id="th1">-Mínimo de 8 caracteres <li id="min_char" class="fa fa-close" style="color: transparent;"></li> </th></tr>
+				<tr><th>-Máximo de 15 caracteres <li id="max_char"class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th>-Al menos una letra mayúscula <li id="mayus" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th>-Al menos una letra minúscula <li id="minus" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th>-Al menos un dígito <li id="numb" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th>-Sin espacios en blanco <li id="ns" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th align="center">-Al menos un caracter especial, sólo estos: $@$!%*?& <li id="esp_char" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th></th></tr>
 			</table>
+			<br><font style="color:#37008C;text-shadow: 0 0 2px grey"> <p align="center">Una vez cumpla todos los requisitos,<br> pásese al campo de <p align="center" style="font-weight: bold;font-size: 20px;font-family: verdana;">Comprobación de su Contraseña</p></p></font>
 		</div>
 	</div>
+
+
+<!-- min_char max_char mayus minus numb ns esp_char -->
+
 
 
 	<script>
