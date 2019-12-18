@@ -1,5 +1,6 @@
 <?php $this->load->helper('usuario'); ?>
 <?php $this->load->helper('validacionesUsuario'); ?>
+
 <body>
 	<?php $this->load->view('navbar') ?>
 	<div class="container">

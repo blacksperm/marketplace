@@ -23,10 +23,10 @@
 
 	<!-- Libreria jquery necesaria para el funcionamiento de AJAX y demas efectos -->
 	<script src="<?php echo base_url('props/bootstrap/js/jquery.js') ?>"></script>
-	
+	<script src="<?php echo base_url('props/bootstrap/js/jquery.mask.min.js') ?>"></script>
 	<!-- Libreria js de bootstrap necesaria para efectos de modal -->
 	<script src="<?php echo base_url('props/bootstrap/js/bootstrap.js');?>"></script>
 	<!-- Libreria js de alertify necesaria para ejecutar las alertas -->
 	<script src="<?php echo base_url('props/alertifyjs/alertify.min.js');?>"></script>
-	<script src="<?php echo base_url('props/bootstrap/js/jquery.mask.min.js') ?>"></script>
+	
 </head>
