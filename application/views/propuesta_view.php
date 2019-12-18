@@ -4,25 +4,26 @@
 	<br>
 	<br>
 	<div class="container">
-		<table border="2">
+		<table class="table">
+			<thead class="thead-dark">
 			<tr>
-				<td>N° de Propuesta</td>
-				<td width="100">Solicitante</td>
-				<td>Requerimiento</td>
-				<td width="400">Oferto</td>
-				
-				<td>Precio</td>
-				<td>Eliminar</td>
-				<td>Actualizar</td>
-				
-
+				<th>N° de Propuesta</th>
+				<th width="100">Solicitante</th>
+				<th>Requerimiento</th>
+				<th width="400">Oferto</th>
+				<th>Imagen</th>
+				<th>Precio</th>
+				<th>Eliminar</th>
+				<th>Actualizar</th>
 			</tr>
+		</thead>
+
 	<tbody id="tabla_propuesta">
 	</tbody>
 			
 		</table>
 		<br>
-		<button type="button" class="btn btn-success" id="nuevaPro">Ingresar</button>
+		<!-- <button type="button" class="btn btn-success" id="nuevaPro">Ingresar</button> -->
 		
 	</div>
 
