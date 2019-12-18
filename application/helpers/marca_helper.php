@@ -73,6 +73,7 @@
 
 
 			$('#nueva_marca').click(function(){
+			$('#formMarca')[0].reset();//Limpiar el formulario en caso de un nueva insersión
 			$('#marca').modal('show');
 			$('#marca').find('.modal-title').text('Nueva Marca');
 			$('#formMarca').attr('action','<?= base_url('marca_controller/ingresar') ?>');
@@ -82,6 +83,8 @@
 
 
 			$('#btnGuardar').click(function(){
+				$resp = validarMarca();//Validar formulario (función en carpeta JS)
+				if($resp == true){//Según lo que devuelva la funcion (true o false) va proceder o NO
 			$url = $('#formMarca').attr('action');
 			$data = $('#formMarca').serialize();
 
@@ -92,6 +95,7 @@
 				data: $data,
 				dataType: 'json',
 				success: function(respuesta){
+
 					$('#marca').modal('hide');
 
 
@@ -116,8 +120,47 @@
 
 
 			});
+		}
 
 		});
+
+
+
+			//actualizar Datos
+			$('#tabla_marca').on('click','.item-edit',function(){
+			var id = $(this).attr('data');
+
+			$('#marca').modal('show');
+			$('#marca').find('.modal-title').text('Actualizar Marca');
+			$('#formMarca').attr('action','<?= base_url('marca_controller/actualizar') ?>');
+
+
+
+			$.ajax({
+				type: 'ajax',
+				method: 'post',
+				url: '<?= base_url('marca_controller/get_datos') ?>',
+				data: {id:id},
+				dataType: 'json',
+
+				success: function($datos){
+					$('#id').val($datos.id_marca);
+					$('#btnMarca').val($datos.n_marca);
+
+
+
+				}
+
+			});
+
+
+
+
+
+		});
+
+
+
 
 
 

@@ -1,4 +1,5 @@
 </head>
+<script type="text/javascript" src="<?= base_url('props/bootstrap/js/marca_val.js') ?>"></script>
 <?php $this->load->helper('marca') ?>
 <body>
 	<br><br>
@@ -16,7 +17,7 @@
 			<tbody id="tabla_marca">
 			</tbody>			
 		</table>
-		<button type="button" class="btn btb-success" id="nueva_marca">Nueva Marca</button>
+		<button type="button" class="btn btn-success" id="nueva_marca">Nueva Marca</button>
 	</div>
 
 <!-- -------------------------------------------------------------------------------------------------
@@ -62,9 +63,10 @@
 
 				<!-- Modal body -->
 				<div class="modal-body">
-					<form id="formMarca" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
+					<form id="formMarca" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;" >
 						
 						<div class="row">
+							<input type="hidden" name="id_marca" id="id" value="0">
 
 							<div class="col-sm-12">
 								<div class="input-group">
@@ -86,8 +88,5 @@
 			</div>
 		</div>
 	</div>
-
-
-
 
 		

@@ -47,7 +47,12 @@ class marca_model extends CI_model{
 
 	public function actualizar($datos){
 		$this->db->set('n_marca',$datos['marca']);
-		$this->db->where('id_marca',$datos)
+		$this->db->where('id_marca',$datos['id_marca']);
+		$this->db->update('marca');
+
+		if($this->db->affected_rows() > 0){
+			return "edi";
+		}
 	}
 
 

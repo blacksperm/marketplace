@@ -38,7 +38,7 @@ class marca_controller extends CI_Controller{
 
 
 	public function get_datos(){
-		$id = $this->input->post('id_marca');
+		$id = $this->input->post('id');
 		$respuesta = $this->marca_model->get_datos($id);
 		echo json_encode($respuesta);
 	}
@@ -46,7 +46,7 @@ class marca_controller extends CI_Controller{
 
 	public function actualizar(){
 		$datos['id_marca']=$this->input->post('id_marca');
-		$datos['n_marca']=$this->input->post('marca');
+		$datos['marca']=$this->input->post('marca');
 		$respuesta = $this->marca_model->actualizar($datos);
 		echo json_encode($respuesta);
 	}
