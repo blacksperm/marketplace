@@ -46,6 +46,12 @@ class login_cont extends CI_Controller{
 		echo json_encode($respuesta);
 	}
 
+	public function cons_pass(){
+		$data['pw'] = md5($this->input->post('pw'));
+		$respuesta = $this->login_model->cons_pass($data);
+		echo json_encode($respuesta);
+	}
+
 }
 
 ?>

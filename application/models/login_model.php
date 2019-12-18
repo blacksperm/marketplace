@@ -22,6 +22,18 @@ class login_model extends CI_Model{
 			return false;
 		}
 	}
+
+
+	public function cons_pass($data){
+		$this->db->where('password', $data['pw']);
+		$this->db->get('usuarios');
+
+		if($this->db->affected_rows() >0){
+			return 'pw_exists';
+		}else{
+			return false;
+		}
+	}
 }
 
 ?>
