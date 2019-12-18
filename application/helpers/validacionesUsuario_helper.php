@@ -56,28 +56,28 @@
         document.getElementById("nombre").placeholder = "Este campo es obligatorio";   
         return false;
     }else{
-    	document.getElementById("nombre").style.boxShadow = '0 0 5px blue';
-    	/*document.getElementById("nombre").style.borderColor = 'blue'*/
+        document.getElementById("nombre").style.boxShadow = '0 0 5px blue';
+        /*document.getElementById("nombre").style.borderColor = 'blue'*/
     }
 
     /*//Validar campo obligatorio
     if($apellido.length == 0){
-    	document.getElementById("apellido").style.boxShadow = '0 0 5px red'; 
-    	document.getElementById("apellido").style.borderColor = 'red'; 
-    	document.getElementById("apellido").placeholder = "Este campo es obligatorio";
-    	return false;
+        document.getElementById("apellido").style.boxShadow = '0 0 5px red'; 
+        document.getElementById("apellido").style.borderColor = 'red'; 
+        document.getElementById("apellido").placeholder = "Este campo es obligatorio";
+        return false;
     }else{
-    	document.getElementById("apellido").style.boxShadow = '0 0 5px blue';
-    	document.getElementById("apellido").style.borderColor = 'blue'
+        document.getElementById("apellido").style.boxShadow = '0 0 5px blue';
+        document.getElementById("apellido").style.borderColor = 'blue'
     }
 
     if(isNaN($edad) || $edad.length == 0){
-    	document.getElementById("edad").style.boxShadow = '0 0 5px red'; 
-    	document.getElementById("edad").style.borderColor = 'red'; 
-    	return false;
+        document.getElementById("edad").style.boxShadow = '0 0 5px red'; 
+        document.getElementById("edad").style.borderColor = 'red'; 
+        return false;
     }else{
-    	document.getElementById("edad").style.boxShadow = '0 0 5px blue';
-    	document.getElementById("edad").style.borderColor = 'blue'
+        document.getElementById("edad").style.boxShadow = '0 0 5px blue';
+        document.getElementById("edad").style.borderColor = 'blue'
     }
 
     //Validar comboBox
@@ -115,19 +115,19 @@
 
     //Validar correo
     if(!(/\S+@\S+\.\S+/.test($correo))){
-    	document.getElementById("correo").style.boxShadow = '0 0 5px red'; 
-    	document.getElementById("correo").style.borderColor = 'red';  
-    	document.getElementById("correo").placeholder = "Debe digitar un correo valido";
-    	$("#infoCorreo").text('Debe digitar un correo valido').css({color: 'red', fontSize: '10px'});
-    	return false;
+        document.getElementById("correo").style.boxShadow = '0 0 5px red'; 
+        document.getElementById("correo").style.borderColor = 'red';  
+        document.getElementById("correo").placeholder = "Debe digitar un correo valido";
+        $("#infoCorreo").text('Debe digitar un correo valido').css({color: 'red', fontSize: '10px'});
+        return false;
     }else{
-    	document.getElementById("correo").style.boxShadow = '0 0 5px blue';
-    	document.getElementById("correo").style.borderColor = 'blue'
+        document.getElementById("correo").style.boxShadow = '0 0 5px blue';
+        document.getElementById("correo").style.borderColor = 'blue'
     }
 
     $resp = disponibilidadCorreo($correo);
     if($resp == true){
-    	return false;
+        return false;
     };
 
     //Validar campo obligatorio
