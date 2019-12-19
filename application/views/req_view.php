@@ -1,5 +1,6 @@
 <?php $this->load->helper('req') ?>
 <?php $this->load->helper('ajax_propuesta') ?>
+<?php $this->load->helper('imagen'); ?>
 <body>
 	<?php $this->load->view('navbar') ?>
 	<div class="container"  style="margin-top: 30px; width: 100%;">
@@ -31,6 +32,7 @@
 
 
 
+		
 		<div class="modal" tabindex="-1" role="dialog" id="modalBorrar">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -53,7 +55,7 @@
 
 
 
-		<!-- The Modal -->
+		<!-- The Modal Nuevo Requerimiento -->
 		<div class="modal fade" id="reque">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
@@ -107,16 +109,9 @@
 								</div>
 							</div>
 
-
+							<?php $id = $this->session->userdata('id');?>
 							<div class="row my-3">
-								<div class="col">
-									<div class="input-group">
-										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>usuario</span>
-										<select name="usuario" id="usuario" class="form-control">
-											<option value="">-- Seleccione un usuario--</option>
-										</select>
-									</div>
-								</div>
+
 
 								<div class="col">
 									<div class="input-group">
@@ -127,19 +122,30 @@
 									</div>
 
 								</div>
-							</div>	
 
-							<div class="row">
+
 								<div class="col">
 									<div class="input-group">
 										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>descripcion</span>
-										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="descripcion" id="descripcion">
+										<textarea class="form-control" style="height: 38px" name="descripcion" id="descripcion"></textarea>
 									</div>
 
 
 								</div>
-
 							</div>
+
+							<div class="row">
+								<div class="col" style="visibility: hidden;">
+									<div class="input-group">
+										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>usuario</span>
+										<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" value="<?= $id; ?>" name="usuario" id="usuario">
+									</div>
+								</div>
+
+							</div>	
+
+
+
 
 						</form>							
 					</div>
@@ -172,7 +178,7 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form id="formPropuesta" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-							<input type="text" name="id_requerimiento" id="idR" value="0">
+							<input type="hidden" name="id_requerimiento" id="idR" value="0">
 							<div class="row">
 								<div class="col">
 									<div class="input-group">
@@ -182,6 +188,8 @@
 								</div>
 								<div class="col">
 									<div class="input-group">
+<<<<<<< HEAD
+=======
 										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Descripción</span>
 										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="descripcion" id="descripcion">
 									</div>
@@ -197,18 +205,14 @@
 							<div class="row">
 								<div class="col">
 									<div class="input-group">
-										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Imagenes</span>
-										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="img" id="img">
-									</div>
-								</div>
-								<div class="col">
-									<div class="input-group">
+>>>>>>> imagenesRudy
 										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Precio</span>
 										<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="precio" id="precio">
 									</div>
+
 								</div>
 							</div>
-
+							<br>
 
 
 							<div class="row">
@@ -222,22 +226,60 @@
 								</div>
 								<div class="col">
 									<div class="input-group">
-										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>usuario</span>
-										<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="usuario" id="usuario">
+										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Descripción</span>
+										<textarea class="form-control" style="height: 38px" name="descripcion" id="descripcion"></textarea>
 									</div>
+									<?php $id = $this->session->userdata('id');?> 
+									<!-- variable de inicio de sesion -->
 								</div>
+							</div>
+							<br>
 
 
+
+							
+							<input type="hidden" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" value="<?= $id; ?>" name="usuario" id="usuario">
+
+
+						</div>
+
+					</form>						
+
+
+					<div class="container">			
+						<form enctype="multipart/form-data" action="" method="post" id="formSubidas">
+							<div class="form-group">
+								<label>Seleccione Fotografias</label>
+								<input type="file" id="file" class="form-control" name="userFiles[]" multiple/>
+								<div id="vista-previa"></div>
 
 							</div>
-						</form>							
+<<<<<<< HEAD
+
+=======
+						</form>	
+
+
+					</div>
+					<div class="container">			
+						<form enctype="multipart/form-data" action="" method="post" id="formSubidas">
+							<div class="form-group">
+								<label>Seleccione Fotografias</label>
+								<input type="file" id="file" class="form-control" name="userFiles[]" multiple/>
+								<div id="vista-previa"></div>
+
+							</div>
+
+>>>>>>> imagenesRudy
+
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<input class="btn btn-primary" type="submit" value="Guardar" id="btnGuardarP">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+							</div>
+						</form>	
 					</div>
 
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="button" id="btnGuardarP" class="btn btn-primary">Guardar</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
 				</div>
 			</div>
 		</div>	
