@@ -1,5 +1,6 @@
 <?php $this->load->helper('req') ?>
 <?php $this->load->helper('ajax_propuesta') ?>
+<?php $this->load->helper('imagen'); ?>
 <body>
 	<?php $this->load->view('navbar') ?>
 	<div class="container"  style="margin-top: 30px; width: 100%;">
@@ -172,7 +173,7 @@
 					<!-- Modal body -->
 					<div class="modal-body">
 						<form id="formPropuesta" action="" method="POST" style="font-family: 'Montserrat', cursive; color: #46281e;">
-							<input type="text" name="id_requerimiento" id="idR" value="0">
+							<input type="hidden" name="id_requerimiento" id="idR" value="0">
 							<div class="row">
 								<div class="col">
 									<div class="input-group">
@@ -195,12 +196,6 @@
 
 
 							<div class="row">
-								<div class="col">
-									<div class="input-group">
-										<span class="input-group-text" ><i class="fa fa-tags" >&nbsp</i>Imagenes</span>
-										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="img" id="img">
-									</div>
-								</div>
 								<div class="col">
 									<div class="input-group">
 										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Precio</span>
@@ -230,14 +225,28 @@
 
 
 							</div>
-						</form>							
+						</form>	
+
+
+					</div>
+					<div class="container">			
+						<form enctype="multipart/form-data" action="" method="post" id="formSubidas">
+							<div class="form-group">
+								<label>Seleccione Fotografias</label>
+								<input type="file" id="file" class="form-control" name="userFiles[]" multiple/>
+								<div id="vista-previa"></div>
+
+							</div>
+
+
+							<!-- Modal footer -->
+							<div class="modal-footer">
+								<input class="btn btn-primary" type="submit" value="Guardar" id="btnGuardarP">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+							</div>
+						</form>	
 					</div>
 
-					<!-- Modal footer -->
-					<div class="modal-footer">
-						<button type="button" id="btnGuardarP" class="btn btn-primary">Guardar</button>
-						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-					</div>
 				</div>
 			</div>
 		</div>	

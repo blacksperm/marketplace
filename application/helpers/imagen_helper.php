@@ -23,7 +23,7 @@
          else
          {
            var objeto_url = navegador.createObjectURL(archivos[x]);
-           $("#vista-previa").append("<img src="+objeto_url+" width='100' height='100'>");
+           $("#vista-previa").append("<img src="+objeto_url+" width='100' height='100' style='margin:2px;'>");
          }
        }
      });
@@ -37,7 +37,7 @@
 
 
 
-     $('#subir').click(function(){
+     $('#btnGuardarP').click(function(){
 
 
       //capturamos lo que este en el atributo action del formulario
