@@ -37,8 +37,13 @@
 
 
 
+<<<<<<< HEAD
      //$('#btnGuardarP').click(function(){
       function guardarImagen(){
+=======
+     $('#btnGuardarP').click(function(){
+
+>>>>>>> imagenesRudy
 
       //capturamos lo que este en el atributo action del formulario
       $url = $('#formSubidas').attr('action');

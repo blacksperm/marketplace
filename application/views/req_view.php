@@ -188,6 +188,24 @@
 								</div>
 								<div class="col">
 									<div class="input-group">
+<<<<<<< HEAD
+=======
+										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Descripción</span>
+										<input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="descripcion" id="descripcion">
+									</div>
+								</div>
+							</div>
+
+
+
+
+
+
+
+							<div class="row">
+								<div class="col">
+									<div class="input-group">
+>>>>>>> imagenesRudy
 										<span class="input-group-text"><i class="fa fa-tags">&nbsp</i>Precio</span>
 										<input type="number" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="precio" id="precio">
 									</div>
@@ -236,7 +254,23 @@
 								<div id="vista-previa"></div>
 
 							</div>
+<<<<<<< HEAD
 
+=======
+						</form>	
+
+
+					</div>
+					<div class="container">			
+						<form enctype="multipart/form-data" action="" method="post" id="formSubidas">
+							<div class="form-group">
+								<label>Seleccione Fotografias</label>
+								<input type="file" id="file" class="form-control" name="userFiles[]" multiple/>
+								<div id="vista-previa"></div>
+
+							</div>
+
+>>>>>>> imagenesRudy
 
 							<!-- Modal footer -->
 							<div class="modal-footer">
