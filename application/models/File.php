@@ -4,7 +4,13 @@ class File extends CI_Model{
 	public function guardar($datos){
 		$this->db->insert('imagenes',$datos);
 		if($this->db->affected_rows()>0){
-			return "add";
+			$last_id = $this->db->insert_id();//
+			$id_propuesta = $this->session->userdata('last_id');
+			$this->db->set('id_propuesta',$id_propuesta);
+			$this->db->set('id_imagen',$last_id);
+			$this->db->insert('propuesta_imagen');
+
+
 		}
     }//fin del metodo guardars
     

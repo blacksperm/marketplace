@@ -37,8 +37,8 @@
 
 
 
-     $('#btnGuardarP').click(function(){
-
+     //$('#btnGuardarP').click(function(){
+      function guardarImagen(){
 
       //capturamos lo que este en el atributo action del formulario
       $url = $('#formSubidas').attr('action');
@@ -80,8 +80,8 @@
 
         }
       });
-
-    });//fin evento del boton guardar del modal
+}
+   // });//fin evento del boton guardar del modal
      
    });
  </script>
