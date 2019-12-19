@@ -31,7 +31,7 @@ class email extends CI_Controller{
                 $data['compr'] =  $correus;
                 $apll = $test->apellido;
                 $nmb = $test->nombre;
-                $nomb = '$nmb $apll';
+                $nomb = "$nmb $apll";
                 $usuario = $test->usuario;
                 
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#%^&*_,./?;:[]{}\|=+';
@@ -70,7 +70,7 @@ class email extends CI_Controller{
             $mail->SMTPSecure = 'ssl';
             $mail->Port     = 465;
 
-            $mail->setFrom('info@example.com', 'Antonio Torres');
+            $mail->setFrom('info@example.com', 'Marketplace');
 
             // $mail->addAttachment("base_url('/props/img/congrats.jpg')", "enhorabuena.jpg");
 
@@ -78,7 +78,7 @@ class email extends CI_Controller{
             $mail->addAddress($correus2);
 
         // Add cc or bcc 
-        // $mail->addCC('cc@example.com');
+        $mail->addCC('admin@marketplace.com');
         // $mail->addBCC('bcc@example.com');
 
         // Email subject

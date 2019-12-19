@@ -40,7 +40,7 @@ if($this->session->userdata('logged')==TRUE){
 } 
 ?>
 <body style="background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(134,174,204,1) 100%);">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 	<br><br><br><br>
 	<?php $this->load->view('valid/login_val_xtnd') ?>
 	<center>
