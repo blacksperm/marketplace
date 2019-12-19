@@ -96,6 +96,8 @@ class req_model extends CI_Model {
 			//return "add";
 			
 		$last_id = $this->db->insert_id();//
+		$u_data = array('last_id' => $last_id);
+		$id_propuesta = $this->session->set_userdata($u_data);
 		
 		$this->db->set('id_requerimiento',$datos["idR"]);
 		$this->db->set('id_propuesta',$last_id);

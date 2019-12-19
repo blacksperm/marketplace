@@ -399,14 +399,16 @@
 					method: 'post',
 					url: $url,
 					data: $data,
-					
+					async: true,
 					dataType: 'json',
 					success: function(respuesta){
 						$('#propuesta').modal('hide');
 
 
 						if(respuesta=='add'){
+							 
 							alertify.notify('Aplico al requerimiento exitosamente','success',10,null);
+							guardarImagen()
 						}
 						else if (respuesta=='edi'){
 							alertify.notify('Propuesta actualizado exitosamente!','success',10,null);
@@ -418,9 +420,9 @@
 						mostrar_propuesta();
 						
 					},
-					error: function(){
+					/*error: function(){
 						alert("estas aqui");
-					}
+					}*/
 				});
 			});
 
