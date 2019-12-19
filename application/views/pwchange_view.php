@@ -68,7 +68,7 @@
 				<tr><th>-Al menos una letra minúscula <li id="minus" class="fa fa-close" style="color: transparent;"></li></th></tr>
 				<tr><th>-Al menos un dígito <li id="numb" class="fa fa-close" style="color: transparent;"></li></th></tr>
 				<tr><th>-Sin espacios en blanco <li id="ns" class="fa fa-close" style="color: transparent;"></li></th></tr>
-				<tr><th align="center">-Al menos un caracter especial, sólo estos: $@$!%*?& <li id="esp_char" class="fa fa-close" style="color: transparent;"></li></th></tr>
+				<tr><th align="center">-Al menos un caracter especial, sólo estos: $@!%*?& <li id="esp_char" class="fa fa-close" style="color: transparent;"></li></th></tr>
 				<tr><th></th></tr>
 			</table>
 			<br><font style="color:#37008C;text-shadow: 0 0 2px grey"> <p align="center">Una vez cumpla todos los requisitos,<br> pásese al campo de <p align="center" style="font-weight: bold;font-size: 20px;font-family: verdana;">Comprobación de su Contraseña</p></p></font>
