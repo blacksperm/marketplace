@@ -272,7 +272,7 @@
 			}
 		});
 
-		$("#contra2").mouseover(function(){
+		$("#contra2").focus(function(){
 			$min_char = $("#min_char").attr('class');
 			$max_char = $("#max_char").attr('class');
 			$mayus = $("#mayus").attr('class');
