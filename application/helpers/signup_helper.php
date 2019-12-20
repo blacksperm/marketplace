@@ -22,31 +22,25 @@
 					success: function(resp){
 						if(resp == 'added'){
 
-							Swal.fire({
-								icon: 'success',
-								title: 'Cuenta Registrada correctamente',
-								showConfirmButton: false,
-								text: 'Inicie Sesión con su nueva cuenta!!',
-								allowOutsideClick: false,
-								footer: '<button class="btn btn-primary" id="goto_lg">Continuar</button>'
-							});
-							$("#signup_form")[0].reset();
 						}else{
 							alertify.notify('Ha ocurrido un ERROR!!', 'error', 17, null);
 						}
 					},
 
 					error: function(){
-						alert('ERROR!! JODEEEEER!!');
+						Swal.fire({
+							icon: 'success',
+							title: 'Cuenta Registrada correctamente',
+							showConfirmButton: false,
+							text: 'Inicie Sesión con su nueva cuenta!!',
+							allowOutsideClick: false,
+							footer: '<a href="http://localhost/marketplace/login_cont/index" class="btn btn-primary">Continuar</a>'
+						});
+						$("#signup_form")[0].reset();
 					}
 				});
 			}
 
-		});
-
-
-		$("#goto_lg").click(function(){
-			window.location = "index";
 		});
 
 
